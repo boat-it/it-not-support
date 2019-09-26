@@ -1,6 +1,5 @@
 <?php
-
-
+// test
 $API_URL = 'https://api.line.me/v2/bot/message';
 $ACCESS_TOKEN = 'f+iMJBDFAx5xLFMHcj8n27KH1Yr4ymT+mYfIi7Qz3YVQbR3QwEMjNW2KiwTpsaBqwzp7FUnh52sTOYbu+b1pPWMTIkGuqEuKAG2h3oqHFtmtqk8NttvmkTHVwR0m5oSaKTXy853sYBojcm5iOEU7EAdB04t89/1O/w1cDnyilFU='; 
 $channelSecret = '0e14c3f144f47fbc2d247184253c0bf6';
