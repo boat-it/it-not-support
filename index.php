@@ -1,3 +1,4 @@
 <?php
-phpinfo();
+print "HELLO TEST";
+print date("now");
 ?>
