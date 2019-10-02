@@ -14,7 +14,7 @@ $request_array = json_decode($request, true);
 
 
 
-$jsonFlex = array( 
+$jsonFlex=array( 
 "type"=> "flex", 
 "altText"=> "Flex Message", 
 "contents"=> array( 
@@ -147,7 +147,7 @@ array(
 ) 
 ) 
 );
-          
+
 
 
 function send_reply_message($url, $post_header, $post_body)
