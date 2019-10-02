@@ -15,138 +15,139 @@ $request_array = json_decode($request, true);
 
 
 $jsonFlex=array( 
-"type"=> "flex", 
-"altText"=> "Flex Message", 
-"contents"=> array( 
-"type"=> "bubble", 
-"direction"=> "rtl", 
-"header"=> array( 
-"type"=> "box", 
-"layout"=> "vertical", 
-"contents"=> array( 
+"type" => "flex", 
+"altText" => "Flex Message", 
+"contents" => array( 
+"type" => "bubble", 
+"direction" => "rtl", 
+"header" => array( 
+"type" => "box", 
+"layout" => "vertical", 
+"contents" => array( 
                     array( 
-                    "type"=> "text", 
-                    "text"=> "แจ้งงาน IT-support", 
-                    "margin"=> "xl", 
-                    "size"=> "md", 
-                    "align"=> "center", 
-                    "gravity"=> "center", 
-                    "weight"=> "bold", 
-                    "color"=> "#005FFF" 
+                    "type" => "text", 
+                    "text" => "แจ้งงาน IT-support", 
+                    "margin" => "xl", 
+                    "size" => "md", 
+                    "align" => "center", 
+                    "gravity" => "center", 
+                    "weight" => "bold", 
+                    "color" => "#005FFF" 
                     ) 
 ) 
 ), 
-"body"=> array( 
-"type"=> "box", 
-"layout"=> "vertical", 
-"contents"=> array( 
+"body" => array( 
+"type" => "box", 
+"layout" => "vertical", 
+"contents" => array( 
 array( 
-"type"=> "spacer", 
-"size"=> "xs" 
+"type" => "spacer", 
+"size" => "xs" 
 ), 
 array( 
-"type"=> "box", 
-"layout"=> "vertical", 
-"contents"=> array( 
+"type" => "box", 
+"layout" => "vertical", 
+"contents" => array( 
 array( 
-"type"=> "filler" 
+"type" => "filler" 
 ), 
 array( 
-"type"=> "box", 
-"layout"=> "horizontal", 
-"contents"=> array( 
+"type" => "box", 
+"layout" => "horizontal", 
+"contents" => array( 
 array( 
-"type"=> "text", 
-"text"=> "ขอ Reset Password เนื่องจาก รหัสผ่าน ของ nannapat หมดอายุ", 
-"margin"=> "none", 
-"align"=> "end", 
-"wrap"=> true 
+"type" => "text", 
+"text" => "ขอ Reset Password เนื่องจาก รหัสผ่าน ของ nannapat หมดอายุ", 
+"margin" => "none", 
+"align" => "end", 
+"wrap" => true 
 ), 
 array( 
-"type"=> "text", 
-"text"=> "=>Detail", 
-"flex"=> 0, 
-"align"=> "end", 
-"weight"=> "bold" 
+"type" => "text", 
+"text" => "Detail",
+"flex" => 0, 
+"align" => "end", 
+"weight" => "bold" 
 ) 
 ) 
 ), 
 array( 
-"type"=> "box", 
-"layout"=> "horizontal", 
-"contents"=> array( 
+"type" => "box", 
+"layout" => "horizontal", 
+"contents" => array( 
 array( 
-"type"=> "text", 
-"text"=> "ห้องบัญชี เครื่องชั่ง", 
-"align"=> "end", 
-"gravity"=> "top", 
-"color"=> "#545454", 
-"wrap"=> true 
+"type" => "text", 
+"text" => "ห้องบัญชี เครื่องชั่ง", 
+"align" => "end", 
+"gravity" => "top", 
+"color" => "#545454", 
+"wrap" => true 
 ), 
 array( 
-"type"=> "text", 
-"text"=> "=>Location", 
-"flex"=> 0, 
-"align"=> "end", 
-"gravity"=> "top", 
-"weight"=> "bold" 
-) 
-) 
-), 
-array( 
-"type"=> "box", 
-"layout"=> "horizontal", 
-"spacing"=> "none", 
-"contents"=> array( 
-array( 
-"type"=> "text", 
-"text"=> "nannapat", 
-"flex"=> 1, 
-"align"=> "end" 
-), 
-array( 
-"type"=> "text", 
-"text"=> "=>Username", 
-"flex"=> 0, 
-"size"=> "sm", 
-"align"=> "end", 
-"weight"=> "bold", 
-"wrap"=> false 
-) 
-) 
-) 
-) 
+"type" => "text", 
+"text" => "Location", 
+"flex" => 0, 
+"align" => "end", 
+"gravity" => "top", 
+"weight" => "bold" 
 ) 
 ) 
 ), 
-"footer"=> array( 
-"type"=> "box", 
-"layout"=> "horizontal", 
-"contents"=> array( 
 array( 
-"type"=> "text", 
-"text"=> "192.168.5.6", 
-"align"=> "center", 
-"gravity"=> "center" 
+"type" => "box", 
+"layout" => "horizontal", 
+"spacing" => "none", 
+"contents" => array( 
+array( 
+"type" => "text", 
+"text" => "nannapat", 
+"flex" => 1, 
+"align" => "end" 
 ), 
 array( 
-"type"=> "button", 
-"action"=> array( 
-"type"=> "uri", 
-"label"=> "ติดตามงาน", 
-"uri"=> "http=>//192.168.5.10/dailyreportpm1" 
+"type" => "text", 
+"text" => "Username", 
+"flex" => 0, 
+"size" => "sm", 
+"align" => "end", 
+"weight" => "bold", 
+"wrap" => false 
+) 
+) 
+) 
+) 
+) 
+) 
 ), 
-"flex"=> 0, 
-"color"=> "#089AFF", 
-"margin"=> "none", 
-"height"=> "md", 
-"style"=> "link", 
-"gravity"=> "center" 
+"footer" => array( 
+"type" => "box", 
+"layout" => "horizontal", 
+"contents" => array( 
+array( 
+"type" => "text", 
+"text" => "192.168.5.6", 
+"align" => "center", 
+"gravity" => "center" 
+), 
+array( 
+"type" => "button", 
+"action" => array( 
+"type" => "uri", 
+"label" => "ติดตามงาน", 
+"uri" => "http=>//192.168.5.10/dailyreportpm1" 
+), 
+"flex" => 0, 
+"color" => "#089AFF", 
+"margin" => "none", 
+"height" => "md", 
+"style" => "link", 
+"gravity" => "center" 
 ) 
 ) 
 ) 
 ) 
 );
+
 
 
 
