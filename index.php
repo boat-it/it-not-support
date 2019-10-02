@@ -178,7 +178,7 @@ if ( sizeof($request_array['events']) > 0 ) {
 //     ];
                 $data = [
             'replyToken' => $reply_token,
-            'messages' => [$jsonFlex]
+            'messages' => $jsonFlex
         ];
         print_r($data);
     $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
