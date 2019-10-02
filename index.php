@@ -12,160 +12,124 @@ $POST_HEADER = array('Content-Type: application/json', 'Authorization: Bearer ' 
 $request = file_get_contents('php://input');// Decode JSON to Array
 $request_array = json_decode($request, true);
 
-$jsonFlex = [ 
-  "type"=> "flex", 
-  "altText"=> "Flex Message", 
-  "contents"=> [ 
-  "type"=> "bubble", 
-  "direction"=> "rtl", 
-  "header"=> [ 
-  "type"=> "box", 
-  "layout"=> "vertical", 
-  "contents"=> [ 
-  [ 
-  "type"=> "text", 
-  "text"=> "แจ้งงาน IT-support", 
-  "margin"=> "xl", 
-  "size"=> "md", 
-  "align"=> "center", 
-  "gravity"=> "center", 
-  "weight"=> "bold", 
-  "color"=> "#005FFF" 
-  ] 
-  ] 
-  ], 
-  "hero"=> [ 
-  "type"=> "image", 
-  "url"=> "https=>//developers.line.biz/assets/images/services/bot-designer-icon.png", 
-  "align"=> "center", 
-  "size"=> "full", 
-  "aspectRatio"=> "3=>1", 
-  "aspectMode"=> "fit", 
-  "backgroundColor"=> "#FFFFFF" 
-  ], 
-  "body"=> [ 
-  "type"=> "box", 
-  "layout"=> "vertical", 
-  "contents"=> [ 
-  [ 
-  "type"=> "spacer", 
-  "size"=> "xs" 
-  ], 
-  [ 
-  "type"=> "box", 
-  "layout"=> "vertical", 
-  "contents"=> [ 
-  [ 
-  "type"=> "filler" 
-  ], 
-  [ 
-  "type"=> "box", 
-  "layout"=> "horizontal", 
-  "contents"=> [ 
-  [ 
-  "type"=> "text", 
-  "text"=> "ขอ Reset Password เนื่องจาก รหัสผ่าน ของ nannapat หมดอายุ", 
-  "margin"=> "none", 
-  "align"=> "end", 
-  "wrap"=> true 
-  ], 
-  [ 
-  "type"=> "text", 
-  "text"=> "=>Detail", 
-  "flex"=> 0, 
-  "align"=> "end", 
-  "weight"=> "bold" 
-  ] 
-  ] 
-  ], 
-  [ 
-  "type"=> "box", 
-  "layout"=> "horizontal", 
-  "contents"=> [ 
-  [ 
-  "type"=> "text", 
-  "text"=> "ห้องบัญชี เครื่องชั่ง", 
-  "align"=> "end", 
-  "gravity"=> "top", 
-  "color"=> "#545454", 
-  "wrap"=> true 
-  ], 
-  [ 
-  "type"=> "text", 
-  "text"=> "=>Location", 
-  "flex"=> 0, 
-  "align"=> "end", 
-  "gravity"=> "top", 
-  "weight"=> "bold" 
-  ] 
-  ] 
-  ], 
-  [ 
-  "type"=> "box", 
-  "layout"=> "horizontal", 
-  "spacing"=> "none", 
-  "contents"=> [ 
-  [ 
-  "type"=> "text", 
-  "text"=> "nannapat", 
-  "flex"=> 1, 
-  "align"=> "end" 
-  ], 
-  [ 
-  "type"=> "text", 
-  "text"=> "=>Username", 
-  "flex"=> 0, 
-  "size"=> "sm", 
-  "align"=> "end", 
-  "weight"=> "bold", 
-  "wrap"=> false 
-  ] 
-  ] 
-  ], 
-  [ 
-  "type"=> "box", 
-  "layout"=> "baseline", 
-  "flex"=> 10, 
-  "spacing"=> "md", 
-  "contents"=> [ 
-  [ 
-  "type"=> "icon", 
-  "url"=> "https=>//developers.line.biz/assets/images/services/bot-designer-icon.png" 
-  ] 
-  ] 
-  ] 
-  ] 
-  ] 
-  ] 
-  ], 
-  "footer"=> [ 
-  "type"=> "box", 
-  "layout"=> "horizontal", 
-  "contents"=> [ 
-  [ 
-  "type"=> "text", 
-  "text"=> "192.168.5.6", 
-  "align"=> "center", 
-  "gravity"=> "center" 
-  ], 
-  [ 
-  "type"=> "button", 
-  "action"=> [ 
-  "type"=> "uri", 
-  "label"=> "ติดตามงาน", 
-  "uri"=> "http=>//192.168.5.10/dailyreportpm1" 
-  ], 
-  "flex"=> 0, 
-  "color"=> "#089AFF", 
-  "margin"=> "none", 
-  "height"=> "md", 
-  "style"=> "link", 
-  "gravity"=> "center" 
-  ] 
-  ] 
-  ] 
-  ] 
-  ] ;
+$jsonFlex = [
+    "type" => "flex",
+    "altText" => "Hello Flex Message",
+    "contents" => [
+      "type" => "bubble",
+      "direction" => "ltr",
+      "header" => [
+        "type" => "box",
+        "layout" => "vertical",
+        "contents" => [
+          [
+            "type" => "text",
+            "text" => "Purchase",
+            "size" => "lg",
+            "align" => "start",
+            "weight" => "bold",
+            "color" => "#009813"
+          ],
+          [
+            "type" => "text",
+            "text" => "฿ 100.00",
+            "size" => "3xl",
+            "weight" => "bold",
+            "color" => "#000000"
+          ],
+          [
+            "type" => "text",
+            "text" => "Rabbit Line Pay",
+            "size" => "lg",
+            "weight" => "bold",
+            "color" => "#000000"
+          ],
+          [
+            "type" => "text",
+            "text" => "2019.02.14 21:47 (GMT+0700)",
+            "size" => "xs",
+            "color" => "#B2B2B2"
+          ],
+          [
+            "type" => "text",
+            "text" => "Payment complete.",
+            "margin" => "lg",
+            "size" => "lg",
+            "color" => "#000000"
+          ]
+        ]
+      ],
+      "body" => [
+        "type" => "box",
+        "layout" => "vertical",
+        "contents" => [
+          [
+            "type" => "separator",
+            "color" => "#C3C3C3"
+          ],
+          [
+            "type" => "box",
+            "layout" => "baseline",
+            "margin" => "lg",
+            "contents" => [
+              [
+                "type" => "text",
+                "text" => "Merchant",
+                "align" => "start",
+                "color" => "#C3C3C3"
+              ],
+              [
+                "type" => "text",
+                "text" => "BTS 01",
+                "align" => "end",
+                "color" => "#000000"
+              ]
+            ]
+          ],
+          [
+            "type" => "box",
+            "layout" => "baseline",
+            "margin" => "lg",
+            "contents" => [
+              [
+                "type" => "text",
+                "text" => "New balance",
+                "color" => "#C3C3C3"
+              ],
+              [
+                "type" => "text",
+                "text" => "฿ 45.57",
+                "align" => "end"
+              ]
+            ]
+          ],
+          [
+            "type" => "separator",
+            "margin" => "lg",
+            "color" => "#C3C3C3"
+          ]
+        ]
+      ],
+      "footer" => [
+        "type" => "box",
+        "layout" => "horizontal",
+        "contents" => [
+          [
+            "type" => "text",
+            "text" => "View Details",
+            "size" => "lg",
+            "align" => "start",
+            "color" => "#0084B6",
+            "action" => [
+              "type" => "uri",
+              "label" => "View Details",
+              "uri" => "https://google.co.th/"
+            ]
+          ]
+        ]
+      ]
+    ]
+  ];
 
 
 
