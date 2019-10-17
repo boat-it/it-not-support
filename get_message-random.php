@@ -12,5 +12,7 @@ if(isset($_GET['message'])=='random'){
     curl_close($ch);
     return $result;
     }
+}else{
+    echo 'message is null';
 }
 ?>
