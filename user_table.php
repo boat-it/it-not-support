@@ -14,4 +14,5 @@ while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
          print "<td>$row[idline]</td>";
           print "</tr>";
 }
+print "push OK";
 ?>
