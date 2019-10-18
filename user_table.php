@@ -5,7 +5,9 @@ $stmt->execute();
 print "<table border=1 width=50%>";
 print "<th>ID</th>";
 print "<th>USER NAME</th>";
-print "<th>@LINE ID</th>";
+print "<th>สถานะทำงาน</th>";
+print "<th>กรรมเช้า/บ่าย</th>";
+print "<th>สถานะ(รอบปัจจุบัน)</th>";
 while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
     print_r($row);
     print "<tr>";
