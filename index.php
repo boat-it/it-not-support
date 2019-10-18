@@ -145,7 +145,7 @@ $jsonFlex=[
     
           $reply_message = "";
           $reply_token = $event['replyToken'];
-          $data = ["replyToken" => $reply_token,"messages" => [$jsonFlex]];
+          $data = ["replyToken" => $reply_token,"messages" => 'TEST'];
 
           $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
 
