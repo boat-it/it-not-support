@@ -7,6 +7,9 @@ print "<tr>";
 print "<th>ID</th>";
 print "<th>USER NAME</th>";
 print "<th>ID@LINE</th>";
+}catch(Exception $e){
+    echo $e->getMessage();
+}
 while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
           print "<tr>";
           print "<td>$row[id]</td>";
@@ -14,8 +17,6 @@ while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
          print "<td>$row[idline]</td>";
           print "</tr>";
 }
-}catch(Exception $e){
-    echo $e->getMessage();
-}
+
 print "push OK";
 ?>
