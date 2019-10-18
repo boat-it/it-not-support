@@ -14,8 +14,8 @@ while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
     print "<td>$row[id]</td>";
     print "<td>$row[username]</td>";
     print "<td>$row[id_line]</td>";
-    print "<td>$row[status1]</td>";
-    print "<td>$row[status2]</td>";
+    print "<td>".($row['status1']==1?"เช้า":"บ่าย")."</td>";
+    print "<td>".($row['status2']==2? "เลื่อน":"ลงเเล้ว")."</td>";
     print "<td>$row[board]</td>";
     print "</tr>";
 
