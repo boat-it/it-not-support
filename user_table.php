@@ -7,10 +7,15 @@ print "<th>ID</th>";
 print "<th>USER NAME</th>";
 print "<th>@LINE ID</th>";
 while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-          print_r($row);
-          print "<tr>";
-          print "<td>$row[id]</td>";
-         print "<td>$row[username]</td>";
-          print "</tr>";
+    print_r($row);
+    print "<tr>";
+    print "<td>$row[id]</td>";
+    print "<td>$row[username]</td>";
+    print "<td>$row[id_line]</td>";
+    print "<td>$row[status1]</td>";
+    print "<td>$row[status2]</td>";
+    print "<td>$row[board]</td>";
+    print "</tr>";
+
 }
 ?>
