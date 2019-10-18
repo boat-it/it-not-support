@@ -1,5 +1,6 @@
 <?php
 require_once 'connectstring.php';
+try{
 $query="SELECT * form user_table";
 $stmt=$dbh->prepare($query)->execute();
 print "<table border=1 width=50%>";
@@ -13,6 +14,9 @@ while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
          print "<td>$row[username]</td>";
          print "<td>$row[idline]</td>";
           print "</tr>";
+}
+}catch(Exception $e){
+    echo $e->getMessage();
 }
 print "push OK";
 ?>
