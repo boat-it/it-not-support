@@ -1,8 +1,7 @@
 <?php
 require_once 'connectstring.php';
 try{
-$query="SELECT * form user_table";
-$stmt=$dbh->prepare($query)->execute();
+$stmt=$dbh->prepare("SELECT * form user_table")->execute();
 print "<table border=1 width=50%>";
 print "<tr>";
 print "<th>ID</th>";
