@@ -85,4 +85,5 @@ include 'callAPI.php';
         $result = curl_exec($ch);
         curl_close ($ch);
     }   exit;
+include 'bottom.html';
 ?>
