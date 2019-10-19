@@ -25,7 +25,7 @@ include 'callAPI.php';
         $response = json_decode($get_data, true);
         $errors = $response['response']['errors'];
         $data = $response['response']['data'][0];
-        $arrayPostData['messages'][0]['text'] = $data;
+        $arrayPostData['messages'][0]['text'] = json_decode($data);
         replyMsg($arrayHeader,$arrayPostData);
     }
     // 
