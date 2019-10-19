@@ -27,14 +27,14 @@ include 'callAPI.php';
         replyMsg($arrayHeader,$arrayPostData);
     }
     // test get data
-    print $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?username=yodsapon','yodsapon');
+    print $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?username=yodsapon'.$user['username']['yodsapon'],false);
     $response = json_decode($get_data, true);
     $errors = $response['response']['errors'];
     $data = $response['response']['data'][0];
     if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?username=yodsapon','yodsapon');
+        $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?username=yodsapon'.$user['username']['yodsapon'],false);
         $response = json_decode($get_data, true);
         $errors = $response['response']['errors'];
         $data = $response['response']['data'][0];
