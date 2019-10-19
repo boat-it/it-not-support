@@ -21,6 +21,5 @@ while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
     print "<td>$row[sex]</td>";
     print "<td><button valeu='edit' id='btn_edit'>edit</button></td>";
     print "</tr>";
-
 }
 ?>

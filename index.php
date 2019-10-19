@@ -15,8 +15,16 @@
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
         replyMsg($arrayHeader,$arrayPostData);
-        print_r($arrayPostData);
     }
+    // test get data
+    if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        print "<a href='user_table.php'></a>";
+        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
+    // 
     #ตัวอย่าง Message Type "Sticker"
     else if($message == "ฝันดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
