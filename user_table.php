@@ -1,7 +1,7 @@
 <?php
 include('connectstring.php');
-if (isset($_GET['username'])) {
-    $stmt=$dbh->query("SELECT * from user_table a left join department on a.username = b.username where username='$_GET[yodsapon]");
+if (isset($_GET['username'])){
+    $stmt=$dbh->query("SELECT * from user_table a left join department on a.username = b.username where username='$_GET[username]");
     $stmt->execute();
     print "<table border=1 width=50%>";
     print "<th>ID</th>";
