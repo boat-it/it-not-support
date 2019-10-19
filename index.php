@@ -18,7 +18,7 @@ include 'callAPI.php';
         replyMsg($arrayHeader,$arrayPostData);
     }
     // test get data
-    $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?username=yodsapon', false);
+    $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?username=','yodsapon');
     $response = json_decode($get_data, true);
     $errors = $response['response']['errors'];
     $data = $response['response']['data'][0];
