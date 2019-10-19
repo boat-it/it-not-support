@@ -18,6 +18,12 @@ include 'callAPI.php';
         replyMsg($arrayHeader,$arrayPostData);
     }
     // test get data
+    $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?username=yodsapon','yodsapon');
+    $response = json_decode($get_data, true);
+    $errors = $response['response']['errors'];
+    $data = $response['response']['data'][0];
+    print_r($data);
+    print $data;
     if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
