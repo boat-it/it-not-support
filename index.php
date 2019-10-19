@@ -20,8 +20,11 @@
     if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        print "<a href='user_table.php'></a>";
-        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
+        $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php/'.$user['yodsapon'], false);
+        $response = json_decode($get_data, true);
+        $errors = $response['response']['errors'];
+        $data = $response['response']['data'][0];
+        $arrayPostData['messages'][0]['text'] = $data;
         replyMsg($arrayHeader,$arrayPostData);
     }
     // 
