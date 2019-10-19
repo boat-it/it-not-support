@@ -26,7 +26,7 @@ if (isset($_GET['username'])){
         print "<td><button valeu='edit' id='btn_edit'>edit</button></td>";
         print "</tr>";
     }
-    print_r($row);
+    print json_encode($row);
 }
 include 'bottom.php';
 ?>
