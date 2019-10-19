@@ -1,4 +1,5 @@
 <?php
+include 'header.html';
 include('connectstring.php');
 if (isset($_GET['username'])){
     $stmt=$dbh->query("SELECT * from user_table a left join department b on a.username = b.username where a.username='$_GET[username]'");
@@ -9,6 +10,8 @@ if (isset($_GET['username'])){
     print "<th>สถานะทำงาน</th>";
     print "<th>กรรมเช้า/บ่าย</th>";
     print "<th>สถานะ(รอบปัจจุบัน)</th>";
+    print "<th>แผนก</th>";
+    print "<th>เพศ</th>";
     while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
         print_r($row);
         print "<tr>";
@@ -25,4 +28,5 @@ if (isset($_GET['username'])){
     }
     print_r($row);
 }
+include 'bottom.php';
 ?>
