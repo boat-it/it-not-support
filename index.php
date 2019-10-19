@@ -18,6 +18,7 @@ include 'callAPI.php';
         replyMsg($arrayHeader,$arrayPostData);
     }
     // test get data
+    $message=='จ้า';
     if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
@@ -25,7 +26,7 @@ include 'callAPI.php';
         $response = json_decode($get_data, true);
         $errors = $response['response']['errors'];
         $data = $response['response']['data'][0];
-        $arrayPostData['messages'][0]['text'] = json_decode($data);
+        $arrayPostData['messages'][0]['text'] = print_r($data);
         replyMsg($arrayHeader,$arrayPostData);
     }
     // 
