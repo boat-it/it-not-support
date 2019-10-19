@@ -2,6 +2,12 @@
 <?php
 include('connectstring.php');
 if (isset($_GET['id'])){
+    
+        $stmt=$dbh->query("SELECT a.id,b.status");
+        $stmt=execute();
+        $row=$stmt->fetchALL(PDO::FETCH_BOTH);
+        print_r($row);
+
     $stmt=$dbh->query("SELECT * from user_table a left join department b on a.username = b.username where a.id='$_GET[id]'");
     $stmt->execute();
     print "<table border=1 width=50%>";
