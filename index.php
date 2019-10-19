@@ -35,6 +35,7 @@ include 'callAPI.php';
     $response = json_decode($get_data, true);
     $errors = $response['response']['errors'];
     $data = $response['response']['data'][0];
+    // 
     if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
