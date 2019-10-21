@@ -14,10 +14,10 @@
 <?php
 include 'callAPI.php';
     $accessToken = "kT9H2mrXWPMGeaTwwUpqu3RXRTTghlSAHXaPk+jZWC7kW8lI9pkbi8po6wemhLv3wzp7FUnh52sTOYbu+b1pPWMTIkGuqEuKAG2h3oqHFtkc23sSukoDHo6+o2e64a01J00m0JVo4h4wM2jDD+r2bQdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
-    
+
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
-    
+
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
@@ -42,7 +42,7 @@ include 'callAPI.php';
         $rand_department=rand(01,04);
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $get_data = callAPI('GET', 'http://192.168.5.10/dailyreportpm1/filetest/herokuAPI.php?id='.$rand_id,false);
+        $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id,false);
         $response = json_decode($get_data, true);
         $errors = $response['response']['errors'];
         $data = $response['response']['data'][0];
@@ -57,6 +57,30 @@ include 'callAPI.php';
         $arrayPostData['messages'][0]['packageId'] = "2";
         $arrayPostData['messages'][0]['stickerId'] = "46";
         replyMsg($arrayHeader,$arrayPostData);
+    }
+    // test show group
+    if(isset($arrayJson['events'][0]['source']['userId'])){
+        $id = $arrayJson['events'][0]['source']['userId'];
+    }
+    else if(isset($arrayJson['events'][0]['source']['groupId'])){
+        $id = $arrayJson['events'][0]['source']['groupId'];
+    }
+    else if(isset($arrayJson['events'][0]['source']['room'])){
+        $id = $arrayJson['events'][0]['source']['room'];
+    }
+    print_r($id);
+    if($message == "Testing"){
+        $arrayPostData['to'] = $id;
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $id;
+        $arrayPostData['messages'][1]['type'] = "sticker";
+        $arrayPostData['messages'][1]['packageId'] = "2";
+        $arrayPostData['messages'][1]['stickerId'] = "34";
+        pushMsg($arrayHeader,$arrayPostData);
+
+
+
+        
     }
     #ตัวอย่าง Message Type "Image"
     else if($message == "รูปน้องแมว"){
