@@ -78,7 +78,7 @@ $json_array=[
          ]
        ]
      ]
-             ];
+];
 print_r($json_array);
 print "<hr>";
 print $json_array;
