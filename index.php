@@ -74,7 +74,7 @@ include 'callAPI.php';
         $id = $arrayJson['events'][0]['source']['room'];
     }
     // flex message 
-    $json_array=[
+    $jsonFlex=[
         "type"=> "flex",
         "altText"=> "Flex Message",
         "contents"=> [
