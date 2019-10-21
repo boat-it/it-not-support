@@ -1,7 +1,7 @@
 <?php
 include 'connectstring.php';
 $current_date=date("Y-m-d H:i:s");
-$query="INSERT into check_date_time('current_date') value (:current_date)";
+$query="INSERT into check_date_time(current_date) VALUES (:current_date)";
 $stmt=$dbh->prepare($query);
 $stmt->bindParam(':current_date',$current_date);
 $stmt->execute();
