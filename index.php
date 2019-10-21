@@ -22,7 +22,7 @@ include 'callAPI.php';
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    
+
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];#ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
@@ -169,7 +169,7 @@ include 'callAPI.php';
             print_r($data);
             $API_URL = 'https://api.line.me/v2/bot/message';
             $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
-            $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $post_body);
+            $send_result = send_reply_message($API_URL.'/reply', $arrayHeader, $post_body);
             echo "Result: ".$send_result."\r\n";
             
         }
