@@ -14,6 +14,7 @@
 <?php
 include 'callAPI.php';
     $accessToken = "kT9H2mrXWPMGeaTwwUpqu3RXRTTghlSAHXaPk+jZWC7kW8lI9pkbi8po6wemhLv3wzp7FUnh52sTOYbu+b1pPWMTIkGuqEuKAG2h3oqHFtkc23sSukoDHo6+o2e64a01J00m0JVo4h4wM2jDD+r2bQdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
+    $channelSecret = '0e14c3f144f47fbc2d247184253c0bf6';
 
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
@@ -40,7 +41,7 @@ include 'callAPI.php';
     if($message=="Requert-id"){
         
     }
-    if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ" || $message=='Request'){
+    if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
         $rand_id=rand(01,04);
         $rand_sex=rand(01,02);
         $rand_department=rand(01,04);
@@ -157,10 +158,7 @@ include 'callAPI.php';
     if($message == "Testing"){
         $arrayPostData['to'] = $id;
         $arrayPostData['messages'][0]['type'] = "flex";
-        $arrayPostData['messages'][0]['text'] = $json_array[];
-        $arrayPostData['messages'][1]['type'] = "sticker";
-        $arrayPostData['messages'][1]['packageId'] = "2";
-        $arrayPostData['messages'][1]['stickerId'] = "34";
+        $arrayPostData['messages'][0]['text'] = $json_array;
         pushMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Image"
