@@ -169,7 +169,7 @@ include 'callAPI.php';
             ];
             print_r($data);
             $API_URL = 'https://api.line.me/v2/bot/message';
-            $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
+            $post_body = json_encode($data);
             $send_result = send_reply_message($API_URL.'/reply', $arrayHeader, $post_body);
             echo "Result: ".$send_result."\r\n";
             
