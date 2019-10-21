@@ -156,11 +156,53 @@ include 'callAPI.php';
                 ];
     // 
     if($message == "Testing"){
-        $arrayPostData['to'] = $id;
-        $arrayPostData['messages'][0]['type'] = "flex";
-        $arrayPostData['messages'][0]['text'] = $json_array;
-        pushMsg($arrayHeader,$arrayPostData);
+
+    if ( sizeof($request_array['events']) > 0 ) {
+        foreach ($request_array['events'] as $event) {
+            error_log(json_encode($event));
+            $reply_message = '';
+            $reply_token = $event['replyToken'];
+            $data = [
+                'replyToken' => $reply_token,
+                'messages' => [$jsonFlex]
+            ];
+            print_r($data);
+            $API_URL = 'https://api.line.me/v2/bot/message';
+            $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
+            $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $post_body);
+            echo "Result: ".$send_result."\r\n";
+            
+        }
     }
+}
+
+    function send_reply_message($url, $post_header, $post_body)
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $post_header);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_body);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return $result;
+    }
+// 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     #ตัวอย่าง Message Type "Image"
     else if($message == "รูปน้องแมว"){
         $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
