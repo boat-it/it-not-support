@@ -68,19 +68,15 @@ include 'callAPI.php';
     else if(isset($arrayJson['events'][0]['source']['room'])){
         $id = $arrayJson['events'][0]['source']['room'];
     }
-    if($message == "Testing"){
-        $arrayPostData['to'] = $id;
+    // if($message == "Testing"){
+        $arrayPostData['to'] = "Ub506b7d4a2ed187ebf8e0fbb22134d40";
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Testing OK $id";
         $arrayPostData['messages'][1]['type'] = "sticker";
         $arrayPostData['messages'][1]['packageId'] = "2";
         $arrayPostData['messages'][1]['stickerId'] = "34";
         pushMsg($arrayHeader,$arrayPostData);
-
-
-
-        
-    }
+    // }
     #ตัวอย่าง Message Type "Image"
     else if($message == "รูปน้องแมว"){
         $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
