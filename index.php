@@ -42,7 +42,7 @@ include 'callAPI.php';
         $rand_department=rand(01,04);
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $get_data = callAPI('GET', 'https://192.168.5.10/dailyreportpm1/filetest/herokuAPI.php?id='.$rand_id,false);
+        $get_data = callAPI('GET', 'http://192.168.5.10/dailyreportpm1/filetest/herokuAPI.php?id='.$rand_id,false);
         $response = json_decode($get_data, true);
         $errors = $response['response']['errors'];
         $data = $response['response']['data'][0];
