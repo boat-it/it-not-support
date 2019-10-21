@@ -16,4 +16,8 @@ while($row=$stmt2->fetch(PDO::FETCH_ASSOC)){
 }
 print "file ok";
 
+
+
+
+
 ?>
