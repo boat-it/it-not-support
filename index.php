@@ -68,11 +68,10 @@ include 'callAPI.php';
     else if(isset($arrayJson['events'][0]['source']['room'])){
         $id = $arrayJson['events'][0]['source']['room'];
     }
-    print_r($id);
     if($message == "Testing"){
         $arrayPostData['to'] = $id;
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = print_r($id);
+        $arrayPostData['messages'][0]['text'] = "Testing OK ";
         $arrayPostData['messages'][1]['type'] = "sticker";
         $arrayPostData['messages'][1]['packageId'] = "2";
         $arrayPostData['messages'][1]['stickerId'] = "34";
