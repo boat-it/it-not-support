@@ -1,9 +1,8 @@
 <?php
 include 'connectstring.php';
 $current_date=date("Y-m-d H:i:s");
-$query="INSERT into check_date_time(current_date) VALUES (:current_date)";
-$stmt=$dbh->prepare($query);
-$stmt->bindParam(':current_date',$current_date);
+$query="INSERT into check_date_time(current_date) VALUES ($current_date)";
+$stmt=$dbh->query($query);
 $stmt->execute();
 print "<hr>";
 $query2="SELECT * from check_date_time order by current_date ASC";
