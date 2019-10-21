@@ -31,15 +31,18 @@ include 'callAPI.php';
         replyMsg($arrayHeader,$arrayPostData);
     }
     // test get data
-    print $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?username=yodsapon'.$user['username']['yodsapon'],false);
-    $response = json_decode($get_data, true);
-    $errors = $response['response']['errors'];
-    $data = $response['response']['data'][0];
-    // 
+    // print $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?username=yodsapon'.$user['username']['yodsapon'],false);
+    // $response = json_decode($get_data, true);
+    // $errors = $response['response']['errors'];
+    // $data = $response['response']['data'][0];
+    // // 
     if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
+        $rand_id=rand(01,04);
+        $rand_sex=rand(01,02);
+        $rand_department=rand(01,04);
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?username=yodsapon'.$user['username']['yodsapon'],false);
+        $get_data = callAPI('GET', 'http://192.168.5.10/dailyreportpm1/filetest/herokuAPI.php?id='.$rand_id,false);
         $response = json_decode($get_data, true);
         $errors = $response['response']['errors'];
         $data = $response['response']['data'][0];

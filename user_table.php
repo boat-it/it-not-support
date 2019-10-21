@@ -2,15 +2,8 @@
 <?php
 include('connectstring.php');
 if (isset($_GET['id'])){
-    
-        $stmt=$dbh->query("SELECT a.id,b.status");
-        $stmt=execute();
-        $row=$stmt->fetchALL(PDO::FETCH_BOTH);
-        foreach ($variable as $key) {
-            rand($key);
-        }
 
-    $stmt=$dbh->query("SELECT * from user_table a left join department b on a.username = b.username where a.id='$_GET[id]'");
+    $stmt=$dbh->query("SELECT * from user_table a left join department b on a.username = b.username where a.id='$_GET[id]' order by a.id ASC limit 2");
     $stmt->execute();
     // print "<table border=1 width=50%>";
     // print "<th>ID</th>";
