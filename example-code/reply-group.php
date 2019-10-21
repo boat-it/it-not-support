@@ -16,12 +16,11 @@
     else if(isset($arrayJson['events'][0]['source']['room'])){
         $id = $arrayJson['events'][0]['source']['room'];
     }
-    print_r($id);
     #ตัวอย่าง Message Type "Text + Sticker"
     if($message == "Testing"){
-        $arrayPostData['to'] = $id;
+        $arrayPostData['to'] = "Ub506b7d4a2ed187ebf8e0fbb22134d40";
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $id;
+        $arrayPostData['messages'][0]['text'] = "send id";
         $arrayPostData['messages'][1]['type'] = "sticker";
         $arrayPostData['messages'][1]['packageId'] = "2";
         $arrayPostData['messages'][1]['stickerId'] = "34";
