@@ -76,7 +76,7 @@ include 'callAPI.php';
     // flex message 
     $jsonFlex = [
             "type"=> "flex",
-            "altText"=> "กรรมการรับเศษกระดาษ",
+            "altText"=> "committe",
             "contents"=> [
               "type"=> "bubble",
               "direction"=> "ltr",
@@ -86,7 +86,7 @@ include 'callAPI.php';
                 "contents"=> [
                   [
                     "type"=> "text",
-                    "text"=> "กรรมการรับเศษประจำวัน",
+                    "text"=> "committee",
                     "size"=> "lg",
                     "align"=> "center",
                     "gravity"=> "top",
@@ -169,7 +169,7 @@ include 'callAPI.php';
             ];
             print_r($data);
             $API_URL = 'https://api.line.me/v2/bot/message';
-            $post_body = json_encode($data);
+            $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
             $send_result = send_reply_message($API_URL.'/reply', $arrayHeader, $post_body);
             echo "Result: ".$send_result."\r\n";
             
