@@ -76,9 +76,11 @@ include 'connectstring.php';
         $id = $arrayJson['events'][0]['source']['room'];
     }
     // flex message 
+    if($message == "Testing"){
+
     $rand_id=rand(01,04);
     $username = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id,false);
-    if($username==null){
+    if($username==null || $username==''){
       $username="ว่าง";
     }
     $json_array='{
@@ -192,7 +194,6 @@ include 'connectstring.php';
   $jsonFlex=json_decode($json_array ,true);
   
   print_r($json_array);    // 
-    if($message == "Testing"){
 
     if ( sizeof($arrayJson['events']) > 0 ) {
         foreach ($arrayJson['events'] as $event) {
