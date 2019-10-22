@@ -40,9 +40,7 @@ include 'connectstring.php';
     // $data = $response['response']['data'][0];
     // // 
     // Requert-id
-    if($message=="Requert-id"){
-        
-    }
+
     if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
         $rand_id=rand(01,04);
         $rand_sex=rand(01,02);
@@ -121,7 +119,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "('.$username.') @line('.$id.')",
+                  "text": "('.$username.') @line()",
                   "margin": "sm",
                   "align": "start"
                 }
@@ -139,7 +137,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "('.$username.') @line('.$id.')",
+                  "text": "('.$username.') @line()",
                   "margin": "sm",
                   "align": "start"
                 }
