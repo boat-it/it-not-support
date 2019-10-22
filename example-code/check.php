@@ -5,7 +5,7 @@ print "current_date".$date=date("Y-m-d H:i:s");
 $query="INSERT into check_date_time(current_date) VALUES (:date_now)";
 $stmt1=$dbh->prepare($query);
 $stmt1->bindParam(':date_now',$date);
-$stmt1->execute();
+$stmt1->execute(); 
 print "<hr>";
 $query2="SELECT * from check_date_time order by current_date ASC";
 $stmt2=$dbh->query($query2);
@@ -15,5 +15,4 @@ while($row=$stmt2->fetch(PDO::FETCH_ASSOC)){
     print "<br>";
 }
 print "file ok";
-
 ?>
