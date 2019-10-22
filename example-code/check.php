@@ -113,8 +113,9 @@ $json_array='[{
       }
     }
   }]';
-print json_decode($json_array ,true);
+$json_array_php=json_decode($json_array ,true);
 
+print_r($json_array_php);
 
 print "<hr>";
 $query2="SELECT * from check_date_time order by current_date ASC";
