@@ -1,7 +1,7 @@
 <?php
 include '../connectstring.php';
 date_default_timezone_set("Asia/Bangkok");
-$current_date=date("Y-m-d");
+print "create_date".$current_date=date("Y-m-d");
 $query="INSERT into check_date_time('current_date') VALUES ($current_date)";
 $stmt=$dbh->prepare($query);
 $stmt->bindColumn(':current_date',$current_date);
