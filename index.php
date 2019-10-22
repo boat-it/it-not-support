@@ -40,7 +40,9 @@ include 'connectstring.php';
     // $data = $response['response']['data'][0];
     // // 
     // Requert-id
-
+    if($message=="Requert-id"){
+        
+    }
     if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
         $rand_id=rand(01,04);
         $rand_sex=rand(01,02);
@@ -74,10 +76,7 @@ include 'connectstring.php';
         $id = $arrayJson['events'][0]['source']['room'];
     }
     // flex message 
-
-    $rand_id=rand(01,04);
-    $username = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id,false);
-    $json_array='{
+    $json_array='[{
       "type": "flex",
       "altText": "Random Board",
       "contents": {
@@ -115,7 +114,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(user id) @line()",
+                  "text": "(username 1) (id-line)",
                   "margin": "sm",
                   "align": "start"
                 }
@@ -133,7 +132,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(user id) @line()",
+                  "text": "(username 2) @line'.$id.')",
                   "margin": "sm",
                   "align": "start"
                 }
@@ -184,12 +183,12 @@ include 'connectstring.php';
           ]
         }
       }
-    }';
+    }]';
   $jsonFlex=json_decode($json_array ,true);
   
-  print_r($json_array);
+  print_r($json_array);    // 
+    if($message == "Testing"){
 
-  if($message == "Testing"){
     if ( sizeof($arrayJson['events']) > 0 ) {
         foreach ($arrayJson['events'] as $event) {
             error_log(json_encode($event));
