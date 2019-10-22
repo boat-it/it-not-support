@@ -81,7 +81,7 @@ include 'connectstring.php';
     if($username==null || $username==''){
       $username=0;
     }
-    $json_array='{
+    $json_array='[{
       "type": "flex",
       "altText": "Random Board",
       "contents": {
@@ -188,7 +188,7 @@ include 'connectstring.php';
           ]
         }
       }
-    }';
+    }]';
   $jsonFlex=json_decode($json_array ,true);
   
   print_r($json_array);    // 
