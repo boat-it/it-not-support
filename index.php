@@ -14,6 +14,7 @@
 <?php
 include 'callAPI.php';
     $accessToken = "kT9H2mrXWPMGeaTwwUpqu3RXRTTghlSAHXaPk+jZWC7kW8lI9pkbi8po6wemhLv3wzp7FUnh52sTOYbu+b1pPWMTIkGuqEuKAG2h3oqHFtkc23sSukoDHo6+o2e64a01J00m0JVo4h4wM2jDD+r2bQdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
+    $channelSecret = '0e14c3f144f47fbc2d247184253c0bf6';
 
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
@@ -21,7 +22,7 @@ include 'callAPI.php';
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    
+
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];#ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
@@ -40,7 +41,7 @@ include 'callAPI.php';
     if($message=="Requert-id"){
         
     }
-    if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ" || $message=='Request'){
+    if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
         $rand_id=rand(01,04);
         $rand_sex=rand(01,02);
         $rand_department=rand(01,04);
@@ -48,8 +49,8 @@ include 'callAPI.php';
         $arrayPostData['messages'][0]['type'] = "text";
         $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id,false);
         $response = json_decode($get_data, true);
-        $errors = $response['response']['errors'];
-        $data = $response['response']['data'][0];
+        // $errors = $response['response']['errors'];
+        // $data = $response['response']['data'][0];
         $arrayPostData['messages'][0]['text'] = "callAPI:$get_data";
         replyMsg($arrayHeader,$arrayPostData);
     }
@@ -72,17 +73,176 @@ include 'callAPI.php';
     else if(isset($arrayJson['events'][0]['source']['room'])){
         $id = $arrayJson['events'][0]['source']['room'];
     }
+    // flex message 
+    $jsonFlex = [
+        "type" => "flex",
+        "altText" => "Hello Flex Message",
+        "contents" => [
+          "type" => "bubble",
+          "direction" => "ltr",
+          "header" => [
+            "type" => "box",
+            "layout" => "vertical",
+            "contents" => [
+              [
+                "type" => "text",
+                "text" => "Purchase",
+                "size" => "lg",
+                "align" => "start",
+                "weight" => "bold",
+                "color" => "#009813"
+              ],
+              [
+                "type" => "text",
+                "text" => "฿ 100.00",
+                "size" => "3xl",
+                "weight" => "bold",
+                "color" => "#000000"
+              ],
+              [
+                "type" => "text",
+                "text" => "Rabbit Line Pay",
+                "size" => "lg",
+                "weight" => "bold",
+                "color" => "#000000"
+              ],
+              [
+                "type" => "text",
+                "text" => "2019.02.14 21:47 (GMT+0700)",
+                "size" => "xs",
+                "color" => "#B2B2B2"
+              ],
+              [
+                "type" => "text",
+                "text" => "Payment complete.",
+                "margin" => "lg",
+                "size" => "lg",
+                "color" => "#000000"
+              ]
+            ]
+          ],
+          "body" => [
+            "type" => "box",
+            "layout" => "vertical",
+            "contents" => [
+              [
+                "type" => "separator",
+                "color" => "#C3C3C3"
+              ],
+              [
+                "type" => "box",
+                "layout" => "baseline",
+                "margin" => "lg",
+                "contents" => [
+                  [
+                    "type" => "text",
+                    "text" => "Merchant",
+                    "align" => "start",
+                    "color" => "#C3C3C3"
+                  ],
+                  [
+                    "type" => "text",
+                    "text" => "BTS 01",
+                    "align" => "end",
+                    "color" => "#000000"
+                  ]
+                ]
+              ],
+              [
+                "type" => "box",
+                "layout" => "baseline",
+                "margin" => "lg",
+                "contents" => [
+                  [
+                    "type" => "text",
+                    "text" => "New balance",
+                    "color" => "#C3C3C3"
+                  ],
+                  [
+                    "type" => "text",
+                    "text" => "฿ 45.57",
+                    "align" => "end"
+                  ]
+                ]
+              ],
+              [
+                "type" => "separator",
+                "margin" => "lg",
+                "color" => "#C3C3C3"
+              ]
+            ]
+          ],
+          "footer" => [
+            "type" => "box",
+            "layout" => "horizontal",
+            "contents" => [
+              [
+                "type" => "text",
+                "text" => "View Details",
+                "size" => "lg",
+                "align" => "start",
+                "color" => "#0084B6",
+                "action" => [
+                  "type" => "uri",
+                  "label" => "View Details",
+                  "uri" => "https://google.co.th/"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ];       
+    // 
     if($message == "Testing"){
-        $arrayPostData['to'] = $id;
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Testing OK $id";
-        $arrayPostData['messages'][1]['type'] = "sticker";
-        $arrayPostData['messages'][1]['packageId'] = "2";
-        $arrayPostData['messages'][1]['stickerId'] = "34";
-        pushMsg($arrayHeader,$arrayPostData);
+
+    if ( sizeof($arrayJson['events']) > 0 ) {
+        foreach ($arrayJson['events'] as $event) {
+            error_log(json_encode($event));
+            $reply_message = '';
+            $reply_token = $event['replyToken'];
+            $data = [
+                'replyToken' => $reply_token,
+                'messages' => [$jsonFlex]
+            ];
+            print_r($data);
+            $API_URL = 'https://api.line.me/v2/bot/message';
+            $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
+            $send_result = send_reply_message($API_URL.'/reply', $arrayHeader, $post_body);
+            echo "Result: ".$send_result."\r\n";
+            
+        }
     }
+}
+
+    function send_reply_message($url, $post_header, $post_body)
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $post_header);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_body);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return $result;
+    }
+// 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     #ตัวอย่าง Message Type "Image"
-    else if($message == "รูปน้องแมว"){
+    if($message == "รูปน้องแมว"){
         $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "image";
