@@ -77,9 +77,6 @@ include 'connectstring.php';
 
     $rand_id=rand(01,04);
     $username = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id,false);
-    if($username==null || $username==''){
-      $username=0;
-    }
     $json_array='{
       "type": "flex",
       "altText": "Random Board",
@@ -118,7 +115,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "('.$username.') @line()",
+                  "text": "(user id) @line()",
                   "margin": "sm",
                   "align": "start"
                 }
@@ -136,7 +133,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "('.$username.') @line()",
+                  "text": "(user id) @line()",
                   "margin": "sm",
                   "align": "start"
                 }
