@@ -80,7 +80,7 @@ include 'connectstring.php';
     if($username==null || $username==''){
       $username=0;
     }
-    $json_array='[{
+    $json_array='{
       "type": "flex",
       "altText": "Random Board",
       "contents": {
@@ -187,13 +187,12 @@ include 'connectstring.php';
           ]
         }
       }
-    }]';
+    }';
   $jsonFlex=json_decode($json_array ,true);
   
-  print_r($json_array);    // 
+  print_r($json_array);
 
   if($message == "Testing"){
-
     if ( sizeof($arrayJson['events']) > 0 ) {
         foreach ($arrayJson['events'] as $event) {
             error_log(json_encode($event));
