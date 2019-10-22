@@ -76,7 +76,7 @@ include 'connectstring.php';
         $id = $arrayJson['events'][0]['source']['room'];
     }
     // flex message 
-
+    $rand_id=rand(01,04);
     $username = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id,false);
 
     $json_array='[{
