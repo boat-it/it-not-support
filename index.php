@@ -76,6 +76,9 @@ include 'connectstring.php';
         $id = $arrayJson['events'][0]['source']['room'];
     }
     // flex message 
+
+    $username = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id,false);
+
     $json_array='[{
       "type": "flex",
       "altText": "Random Board",
@@ -114,7 +117,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(username 1) @line('.$id.')",
+                  "text": "('.$username.') @line('.$id.')",
                   "margin": "sm",
                   "align": "start"
                 }
@@ -132,7 +135,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(username 2) @line('.$id.')",
+                  "text": "('.$username.') @line('.$id.')",
                   "margin": "sm",
                   "align": "start"
                 }

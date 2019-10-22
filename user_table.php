@@ -14,6 +14,7 @@ if (isset($_GET['id'])){
     // print "<th>แผนก</th>";
     // print "<th>เพศ</th>";
     while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
+        print $row['username'];
         // print_r($row);
         // print "<tr>";
         // print "<td>$row[id]</td>";
@@ -26,7 +27,7 @@ if (isset($_GET['id'])){
         // print "<td>$row[sex]</td>";
         // print "<td><button valeu='edit' id='btn_edit'>edit</button></td>";
         // print "</tr>";
-        print json_encode($row);
+        // print json_encode($row);
     }
 }
 ?>
