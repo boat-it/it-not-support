@@ -27,55 +27,52 @@ include 'connectstring.php';
 
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];#ตัวอย่าง Message Type "Text"
-    if($message == "สวัสดี"){
+    if ($message == "สวัสดี") {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
-        replyMsg($arrayHeader,$arrayPostData);
+        replyMsg($arrayHeader, $arrayPostData);
     }
     // test get data
     // print $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?username=yodsapon'.$user['username']['yodsapon'],false);
     // $response = json_decode($get_data, true);
     // $errors = $response['response']['errors'];
     // $data = $response['response']['data'][0];
-    // // 
+    // //
     // Requert-id
-    if($message=="Requert-id"){
-        
+    if ($message=="Requert-id") {
     }
-    if($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ"){
-        $rand_id=rand(01,04);
-        $rand_sex=rand(01,02);
-        $rand_department=rand(01,04);
+    if ($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ") {
+        $rand_id=rand(01, 04);
+        $rand_sex=rand(01, 02);
+        $rand_department=rand(01, 04);
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id,false);
+        $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id, false);
         $response = json_decode($get_data, true);
         // $errors = $response['response']['errors'];
         // $data = $response['response']['data'][0];
         $arrayPostData['messages'][0]['text'] = "callAPI:$get_data";
-        replyMsg($arrayHeader,$arrayPostData);
+        replyMsg($arrayHeader, $arrayPostData);
     }
-    // 
+    //
     #ตัวอย่าง Message Type "Sticker"
-    else if($message == "ฝันดี"){
+    elseif ($message == "ฝันดี") {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "sticker";
         $arrayPostData['messages'][0]['packageId'] = "2";
         $arrayPostData['messages'][0]['stickerId'] = "46";
-        replyMsg($arrayHeader,$arrayPostData);
+        replyMsg($arrayHeader, $arrayPostData);
     }
     // test show group
-    if(isset($arrayJson['events'][0]['source']['userId'])){
+    if (isset($arrayJson['events'][0]['source']['userId'])) {
         $id = $arrayJson['events'][0]['source']['userId'];
-    }
-    else if(isset($arrayJson['events'][0]['source']['groupId'])){
+    } elseif (isset($arrayJson['events'][0]['source']['groupId'])) {
         $id = $arrayJson['events'][0]['source']['groupId'];
-    }
-    else if(isset($arrayJson['events'][0]['source']['room'])){
+    } elseif (isset($arrayJson['events'][0]['source']['room'])) {
         $id = $arrayJson['events'][0]['source']['room'];
     }
-    // flex message 
+    // flex message
     $json_array='[{
       "type": "flex",
       "altText": "Random Board",
@@ -114,7 +111,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(username 1) (id-line)",
+                  "text": "(@id yodsapon) (@line)",
                   "margin": "sm",
                   "align": "start"
                 }
@@ -132,7 +129,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(username 2) @line'.$id.')",
+                  "text": "(@id yodsapon) @line'.$id.')",
                   "margin": "sm",
                   "align": "start"
                 }
@@ -184,29 +181,27 @@ include 'connectstring.php';
         }
       }
     }]';
-  $jsonFlex=json_decode($json_array ,true);
+  $jsonFlex=json_decode($json_array, true);
   
-  print_r($json_array);    // 
-    if($message == "Testing"){
-
-    if ( sizeof($arrayJson['events']) > 0 ) {
-        foreach ($arrayJson['events'] as $event) {
-            error_log(json_encode($event));
-            $reply_message = '';
-            $reply_token = $event['replyToken'];
-            $data = [
+  print_r($json_array);
+    if ($message == "Testing") {
+        if (sizeof($arrayJson['events']) > 0) {
+            foreach ($arrayJson['events'] as $event) {
+                error_log(json_encode($event));
+                $reply_message = '';
+                $reply_token = $event['replyToken'];
+                $data = [
                 'replyToken' => $reply_token,
                 'messages' => $jsonFlex
             ];
-            print_r($data);
-            $API_URL = 'https://api.line.me/v2/bot/message';
-            $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
-            $send_result = send_reply_message($API_URL.'/reply', $arrayHeader, $post_body);
-            echo "Result: ".$send_result."\r\n";
-            
+                print_r($data);
+                $API_URL = 'https://api.line.me/v2/bot/message';
+                $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
+                $send_result = send_reply_message($API_URL.'/reply', $arrayHeader, $post_body);
+                echo "Result: ".$send_result."\r\n";
+            }
         }
     }
-}
 
     function send_reply_message($url, $post_header, $post_body)
     {
@@ -220,7 +215,7 @@ include 'connectstring.php';
         curl_close($ch);
         return $result;
     }
-// 
+//
 
 
 
@@ -236,61 +231,64 @@ include 'connectstring.php';
 
 
     #ตัวอย่าง Message Type "Image"
-    if($message == "รูปน้องแมว"){
+    if ($message == "รูปน้องแมว") {
         $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "image";
         $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
         $arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
-        replyMsg($arrayHeader,$arrayPostData);
+        replyMsg($arrayHeader, $arrayPostData);
     }
     #ตัวอย่าง Message Type "Location"
-    else if($message == "พิกัดสยามพารากอน"){
+    elseif ($message == "พิกัดสยามพารากอน") {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
         $arrayPostData['messages'][0]['title'] = "สยามพารากอน";
         $arrayPostData['messages'][0]['address'] =   "13.7465354,100.532752";
         $arrayPostData['messages'][0]['latitude'] = "13.7465354";
         $arrayPostData['messages'][0]['longitude'] = "100.532752";
-        replyMsg($arrayHeader,$arrayPostData);
+        replyMsg($arrayHeader, $arrayPostData);
     }
     #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
-    else if($message == "ลาก่อน"){
+    elseif ($message == "ลาก่อน") {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "อย่าทิ้งกันไป";
         $arrayPostData['messages'][1]['type'] = "sticker";
         $arrayPostData['messages'][1]['packageId'] = "1";
         $arrayPostData['messages'][1]['stickerId'] = "131";
-        replyMsg($arrayHeader,$arrayPostData);
+        replyMsg($arrayHeader, $arrayPostData);
 
-        // ฟังชั่น ตอบกลับ 
+        // ฟังชั่น ตอบกลับ
     }
-    function replyMsg($arrayHeader,$arrayPostData){ 
+    function replyMsg($arrayHeader, $arrayPostData)
+    {
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$strUrl);
+        curl_setopt($ch, CURLOPT_URL, $strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
-        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $result = curl_exec($ch);
-        curl_close ($ch);
+        curl_close($ch);
     }   exit;
-// push message 
-function pushMsg($arrayHeader,$arrayPostData){
-    $strUrl = "https://api.line.me/v2/bot/message/push";$ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,$strUrl);
+// push message
+function pushMsg($arrayHeader, $arrayPostData)
+{
+    $strUrl = "https://api.line.me/v2/bot/message/push";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $strUrl);
     curl_setopt($ch, CURLOPT_HEADER, false);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     $result = curl_exec($ch);
-    curl_close ($ch);
+    curl_close($ch);
 }exit;
 ?>
 </body>
