@@ -113,8 +113,7 @@ $json_array='[{
       }
     }
   }]';
-print $json_array;
-print_r($json_array);
+print json_decode($json_array ,true);
 
 
 print "<hr>";
