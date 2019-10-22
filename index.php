@@ -79,7 +79,7 @@ include 'connectstring.php';
     $rand_id=rand(01,04);
     $username = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id,false);
     if($username==null || $username==''){
-      $username="ว่าง";
+      $username=0;
     }
     $json_array='{
       "type": "flex",
