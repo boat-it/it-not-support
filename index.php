@@ -79,7 +79,7 @@ include 'connectstring.php';
     $rand_id=rand(01,04);
     $username = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id,false);
 
-    $json_array='[{
+    $json_array='{
       "type": "flex",
       "altText": "Random Board",
       "contents": {
@@ -186,7 +186,7 @@ include 'connectstring.php';
           ]
         }
       }
-    }]';
+    }';
   $jsonFlex=json_decode($json_array ,true);
   
   print_r($json_array);    // 
