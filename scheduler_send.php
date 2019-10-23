@@ -23,6 +23,8 @@ $query="SELECT * from check_date_time";
 if(!$temp=pg_query($dbcon_old,$query)){
     printf("Error:%s\n",$temp);
 }else{
+    echo "selected success";
+    echo "<br>";
     while ($row=pg_fetch_array($temp)) {
         print_r($row);
         print "<br>";
