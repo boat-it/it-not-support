@@ -5,7 +5,8 @@ if(isset($current)!=''){
 try{
 $query="INSERT INTO check_date_time('current_date') values (?)";
 $stmt=$dbh->prepare($query);
-$stmt->execute($current[]);
+$stmt->bindParam(':current',$current,PDO::PARAM_STR);
+$stmt->execute();
 }catch(Exception $e){
     echo $e->getMessage();
 }
