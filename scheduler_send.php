@@ -20,9 +20,12 @@ if(!$temp=pg_query($dbcon_old,$query)){
 // 
 print "<hr>";
 $query="SELECT * from check_date_time";
-@$temp=pg_query($dbcon_old,$query);
-while($row=pg_fetch_array($temp)){
-    print_r($row);
-    print "<br>";
+if(!$temp=pg_query($dbcon_old,$query)){
+    printf("Error:%s\n",$temp);
+}else{
+    while ($row=pg_fetch_array($temp)) {
+        print_r($row);
+        print "<br>";
+    }
 }
 ?>
