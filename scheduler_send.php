@@ -5,9 +5,10 @@ print "current_date:$current";
 print "<hr>";
 try{
 if (isset($current)) {
-    $query="INSERT INTO check_date_time (current_dat) values ('$current')";
-    $stmt=$dbh->query($query);
-    $stmt->execute();
+    $query="INSERT INTO check_date_time (current_dat) values (:current)";
+    $stmt=$dbh->prepare($query);
+    $data=array('current'=>$current);
+    $stmt->execute($data);
 }
 }catch(Exception $e){
     echo $e->getMessage();
