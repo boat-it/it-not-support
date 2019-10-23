@@ -15,9 +15,8 @@ $query="INSERT INTO check_date_time (current_dat) values ($currentgmt)";
 @$temp=pg_query($dbcon_old,$query);
 // 
 $query="SELECT * from check_date_time";
-$stmt=$dbh->query($query);
-$stmt->execute();
-while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+@$temp=pg_query($dbcon_old,$query);
+while($row=pg_fetch_array($temp)){
     print_r($row);
     print "<br>";
 }
