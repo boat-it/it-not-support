@@ -4,10 +4,9 @@ $current=date("Y-m-d H:i:s");
 print "current_date:$current";
 print "<hr>";
 try{
-$query="INSERT INTO check_date_time(current_date) values (:current)";
+$query="INSERT INTO check_date_time (current_date) values (?)";
 $stmt=$dbh->prepare($query);
-$stmt->bindParam(':current',$current,PDO::PARAM_STR);
-$stmt->execute();
+$stmt->execute([$current]);
 }catch(Exception $e){
     echo $e->getMessage();
 }
