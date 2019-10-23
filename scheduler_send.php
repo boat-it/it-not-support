@@ -11,14 +11,8 @@ function convertdatetimezone($date ,$format = 'Y-m-d H:i:s'){
 }
 print "GMT:DATE=".convertdatetimezone($current);
 $currentgmt=convertdatetimezone($current);
-try{
-    $query="INSERT INTO check_date_time (current_dat) values (:current)";
-    $stmt=$dbh->prepare($query);
-    $stmt->bindParam(':current',$currentgmt);
-    $stmt->execute();
-}catch(Exception $e){
-    echo $e->getMessage();
-}
+$query="INSERT INTO check_date_time (current_dat) values (:current)";
+@$temp=pg_query($dbcon_old,$query);
 // 
 $query="SELECT * from check_date_time";
 $stmt=$dbh->query($query);
