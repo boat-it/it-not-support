@@ -4,9 +4,11 @@ $current=date("Y-m-d H:i:s");
 print "current_date:$current";
 print "<hr>";
 try{
-$query="INSERT INTO check_date_time (current_dat) values (?)";
-$stmt=$dbh->prepare($query);
-$stmt->execute([$current]);
+if (isset($current)) {
+    $query="INSERT INTO check_date_time (current_dat) values ('$current')";
+    $stmt=$dbh->query($query);
+    $stmt->execute();
+}
 }catch(Exception $e){
     echo $e->getMessage();
 }
