@@ -9,21 +9,18 @@ function convertdatetimezone($date ,$format = 'Y-m-d H:i:s'){
 
     return $d->format($format);
 }
-print "GMT:DATE=".convertdatetimezone($current);
 $currentgmt=convertdatetimezone($current);
-$query="INSERT INTO check_date_time('check_date_time') VALUES ($currentgmt)";
-$temp=pg_query($dbcon_old,$query);
-// 
-print "<hr>";
-$query="SELECT * from check_date_time";
-if(!$temp=pg_query($dbcon_old,$query)){
-    printf("Error:%s\n",$temp);
-}else{
-    echo "selected success";
-    echo "<br>";
-    while ($row=pg_fetch_array($temp)) {
-        print_r($row);
-        print "<br>";
-    }
+try{
+$stmt=$dbh->prepare("INSERT into check_date_time(current_date)values(:current_date_time_zone)");
+$stmt->bindParam(':current_date_time_zone',$currentgmt);
+$stmt->execute();
+}catch(Exception $E){
+    echo $E->getMessage();
 }
+// 
+// $query=$dbh->prepare("SELECT current_date from check_date_time");
+// $stmt->execute();
+// while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+    // print_r($row);
+// }
 ?>
