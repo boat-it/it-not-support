@@ -1,5 +1,5 @@
 <?php
-include 'connectstring.php';
+include("connectstring.php");
 $current=date("Y-m-d H:i:s");
 function convertdatetimezone($date ,$format = 'Y-m-d H:i:s'){
     $tz1= 'UTC';
@@ -18,6 +18,7 @@ if(!$temp=pg_query($dbcon_old,$query)){
     echo "inserted";
 }
 // 
+print "<hr>";
 $query="SELECT * from check_date_time";
 @$temp=pg_query($dbcon_old,$query);
 while($row=pg_fetch_array($temp)){
