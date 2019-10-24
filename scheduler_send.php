@@ -27,18 +27,23 @@ print "<form method=get action=''>
 </form>";
 if (isset($_GET['submit'])){
     $character='hello_world';
-    $query="INSERT into testinsert(id_mater,data_test,test_data2,test_data3)values(:id_master,:test_data,:test_data2,:test_data3)";
-    $stmt=$dbh->prepare($query);
-    $stmt->bindParam(':id_master', $_GET['id_master']);
-    $stmt->bindParam(':test_data', $_GET['data_test']);
-    $stmt->bindParam(':test_data2', $_GET['test_data2']);
-    $stmt->bindParam(':test_data3', $_GET['test_data3']);
-    $stmt->execute();
-    $querys="SELECT * from testinsert";
-    $stmt2=$dbh->prepare($querys);
-    $stmt2->execute();
-    while ($row=$stmt2->fetch(PDO::FETCH_ASSOC)) {
-        print_r($row);
+    try {
+        $query="INSERT into testinsert(id_mater,data_test,test_data2,test_data3)values(:id_master,:test_data,:test_data2,:test_data3)";
+        $stmt=$dbh->prepare($query);
+        $stmt->bindParam(':id_master', $_GET['id_master']);
+        $stmt->bindParam(':test_data', $_GET['data_test']);
+        $stmt->bindParam(':test_data2', $_GET['test_data2']);
+        $stmt->bindParam(':test_data3', $_GET['test_data3']);
+        $stmt->execute();
+        // 
+        $querys="SELECT * from testinsert";
+        $stmt2=$dbh->prepare($querys);
+        $stmt2->execute();
+        while ($row=$stmt2->fetch(PDO::FETCH_ASSOC)) {
+            print_r($row);
+        }
+    }catch(Exception $e){
+        echo $e->getmessage(),$e->getenv(),$e->getLine();
     }
 }
 // 
