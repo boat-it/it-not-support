@@ -19,7 +19,7 @@ $currentgmt=convertdatetimezone($current);
 // }
 $num=10000;
 $character='hello_world';
-$query="INSERT into testinsert(id_mater,test_data,test_data2,test_data3)values(:id_master,:test_data,:test_data2,:test_data3)";
+$query="INSERT into testinsert(id_mater,data_test,test_data2,test_data3)values(:id_master,:test_data,:test_data2,:test_data3)";
 $stmt=$dbh->prepare($query);
 $stmt->bindValue(':id_master',01);
 $stmt->bindParam(':test_data',$currentgmt);
