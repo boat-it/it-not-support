@@ -19,11 +19,11 @@ $currentgmt=convertdatetimezone($current);
 // }
 $num=10000;
 print "<form method=post action=''>
-<input name=id_master>
-<input name=data_test>
-<input name=test_data2>
-<input name=test_data3>
-<input name=submit value=submit>
+<input type=text name=id_master>
+<input type=date name=data_test>
+<input type=text name=test_data2>
+<input type=text name=test_data3>
+<input type=submit name=submit value=submit>
 </form>";
 if (isset($_POST['submit'])){
     $character='hello_world';
