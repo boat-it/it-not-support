@@ -18,21 +18,21 @@ $currentgmt=convertdatetimezone($current);
 //     echo $E->getMessage();
 // }
 $num=10000;
-print "<form method=post action=''>
+print "<form method=get action=''>
 <input type=text name=id_master>
 <input type=date name=data_test>
 <input type=text name=test_data2>
 <input type=text name=test_data3>
 <input type=submit name=submit value=submit>
 </form>";
-if (isset($_POST['submit'])){
+if (isset($_GET['submit'])){
     $character='hello_world';
     $query="INSERT into testinsert(id_mater,data_test,test_data2,test_data3)values(:id_master,:test_data,:test_data2,:test_data3)";
     $stmt=$dbh->prepare($query);
-    $stmt->bindParam(':id_master', $_POST['id_master']);
-    $stmt->bindParam(':test_data', $_POST['data_test']);
-    $stmt->bindParam(':test_data2', $_POST['test_data2']);
-    $stmt->bindParam(':test_data3', $_POST['test_data3']);
+    $stmt->bindParam(':id_master', $_GET['id_master']);
+    $stmt->bindParam(':test_data', $_GET['data_test']);
+    $stmt->bindParam(':test_data2', $_GET['test_data2']);
+    $stmt->bindParam(':test_data3', $_GET['test_data3']);
     $stmt->execute();
     $querys="SELECT * from testinsert";
     $stmt2=$dbh->prepare($querys);
