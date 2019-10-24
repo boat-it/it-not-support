@@ -18,19 +18,21 @@ $currentgmt=convertdatetimezone($current);
 //     echo $E->getMessage();
 // }
 $num=10000;
-$character='hello_world';
-$query="INSERT into testinsert(id_mater,data_test,test_data2,test_data3)values(:id_master,:test_data,:test_data2,:test_data3)";
-$stmt=$dbh->prepare($query);
-$stmt->bindValue(':id_master',01);
-$stmt->bindParam(':test_data',$currentgmt);
-$stmt->bindParam(':test_data2',$num);
-$stmt->bindParam(':test_data3',$character);
-$stmt->execute();
-$querys="SELECT * from testinsert";
-$stmt2=$dbh->prepare($querys);
-$stmt2->execute();
-while($row=$stmt2->fetch(PDO::FETCH_ASSOC)){
-    print_r($row);
+if ($num>1) {
+    $character='hello_world';
+    $query="INSERT into testinsert(id_mater,data_test,test_data2,test_data3)values(:id_master,:test_data,:test_data2,:test_data3)";
+    $stmt=$dbh->prepare($query);
+    $stmt->bindValue(':id_master', 02);
+    $stmt->bindParam(':test_data', $currentgmt);
+    $stmt->bindParam(':test_data2', $num);
+    $stmt->bindParam(':test_data3', $character);
+    $stmt->execute();
+    $querys="SELECT * from testinsert";
+    $stmt2=$dbh->prepare($querys);
+    $stmt2->execute();
+    while ($row=$stmt2->fetch(PDO::FETCH_ASSOC)) {
+        print_r($row);
+    }
 }
 // 
 // $query=$dbh->prepare("SELECT current_date from check_date_time");
