@@ -18,14 +18,21 @@ $currentgmt=convertdatetimezone($current);
 //     echo $E->getMessage();
 // }
 $num=10000;
-if ($num>1) {
+print "<form method=post action=''>
+<input name=id_master>
+<input name=data_test>
+<input name=test_data2>
+<input name=test_data3>
+<input name=submit value=submit>
+</form>";
+if (isset($_POST['submit'])){
     $character='hello_world';
     $query="INSERT into testinsert(id_mater,data_test,test_data2,test_data3)values(:id_master,:test_data,:test_data2,:test_data3)";
     $stmt=$dbh->prepare($query);
-    $stmt->bindValue(':id_master', 02);
-    $stmt->bindParam(':test_data', $currentgmt);
-    $stmt->bindParam(':test_data2', $num);
-    $stmt->bindParam(':test_data3', $character);
+    $stmt->bindParam(':id_master', $_POST['id_master']);
+    $stmt->bindParam(':test_data', $_POST['data_test']);
+    $stmt->bindParam(':test_data2', $_POST['test_data2']);
+    $stmt->bindParam(':test_data3', $_POST['test_data3']);
     $stmt->execute();
     $querys="SELECT * from testinsert";
     $stmt2=$dbh->prepare($querys);
