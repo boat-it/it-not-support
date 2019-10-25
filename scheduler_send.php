@@ -15,7 +15,7 @@ $stmt=$dbh->prepare($query);
 $stmt->execute();
 $rownum=$stmt->fetch(PDO::FETCH_ASSOC);
 print"line1". $count=$rownum['id_master'];
-print '<br>line2'. $num=1;
+$num=1;
 if($num>=$count){
 $sumnum=$num+$count;
 }
