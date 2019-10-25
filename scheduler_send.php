@@ -20,18 +20,15 @@ $currentgmt=convertdatetimezone($current);
 $num=10000;
 print "<form method=get action=''>
 <input type=text name=id_master>
-<input type=date name=data_test>
 <input type=text name=test_data2>
-<input type=text name=test_data3>
 <input type=submit name=submit value=submit>
 </form>";
 if (isset($_GET['submit'])){
     $character='hello_world';
     try {
-        $query="INSERT into testinsert values(:id_master,:data_test,:test_data2)";
+        $query="INSERT into testinsert values(:id_master,:test_data2)";
         $stmt=$dbh->prepare($query);
         $stmt->bindParam(':id_master', $_GET['id_master']);
-        $stmt->bindParam(':test_data', $_GET['data_test']);
         $stmt->bindParam(':test_data2', $_GET['test_data2']);
         $stmt->execute();
         // 
