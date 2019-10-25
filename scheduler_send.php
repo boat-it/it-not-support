@@ -14,8 +14,8 @@ $query="SELECT * from testinsert";
 $stmt=$dbh->prepare($query);
 $stmt->execute();
 $rownum=$stmt->fetch(PDO::FETCH_ASSOC);
-$count=$rownum['id_master'];
-$num=1;
+print"line1". $count=$rownum['id_master'];
+print '<br>line2'. $num=1;
 if($num>=$count){
 $sumnum=$num+$count;
 }
