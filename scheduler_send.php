@@ -20,7 +20,7 @@ $currentgmt=convertdatetimezone($current);
 $num=10000;
 print "<form method=get action=''>
 <input type=text name=id_master>
-<input type=text name=test_data2>
+<input type=date name=test_data2>
 <input type=submit name=submit value=submit>
 </form>";
 if (isset($_GET['submit'])){
