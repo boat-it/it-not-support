@@ -14,8 +14,7 @@ $query="SELECT * from testinsert";
 $stmt=$dbh->prepare($query);
 $stmt->execute();
 $rownum=$stmt->fetch(PDO::FETCH_ASSOC);
-$count=$rownum['id_master'];
-print_r($rownum);
+$count+=$rownum['id_master']+1;
     try {
         $query="INSERT into testinsert values(:id_master,:test_data2)";
         $stmt=$dbh->prepare($query);
