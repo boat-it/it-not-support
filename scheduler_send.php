@@ -10,7 +10,7 @@ function convertdatetimezone($date ,$format = 'Y-m-d H:i:s'){
     return $d->format($format);
 }
 $currentgmt=convertdatetimezone($current);
-$query="SELECT * from testinsert";
+$query="SELECT * from testinsert order by id_master DESC limit 1";
 $stmt=$dbh->prepare($query);
 $stmt->execute();
 $rownum=$stmt->fetch(PDO::FETCH_ASSOC);
