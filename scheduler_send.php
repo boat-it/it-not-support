@@ -14,12 +14,15 @@ $query="SELECT * from testinsert";
 $stmt=$dbh->prepare($query);
 $stmt->execute();
 $rownum=$stmt->fetch(PDO::FETCH_ASSOC);
-$count=1;
-@$count+=$rownum['id_master'];
-    try {
+$count=$rownum['id_master'];
+$num=1;
+if($num>=$count){
+$sumnum=$num+$count;
+}
+try {
         $query="INSERT into testinsert values(:id_master,:test_data2)";
         $stmt=$dbh->prepare($query);
-        $stmt->bindParam(':id_master',$count);
+        $stmt->bindParam(':id_master',$sumnum);
         $stmt->bindParam(':test_data2', $currentgmt);
         $stmt->execute();
         // 
