@@ -28,7 +28,7 @@ print "<form method=get action=''>
 if (isset($_GET['submit'])){
     $character='hello_world';
     try {
-        $query="INSERT into testinsert values(:id_master,:test_data,:test_data2,:test_data3)";
+        $query="INSERT into testinsert values(:id_master,:data_test,:test_data2)";
         $stmt=$dbh->prepare($query);
         $stmt->bindParam(':id_master', $_GET['id_master']);
         $stmt->bindParam(':test_data', $_GET['data_test']);
