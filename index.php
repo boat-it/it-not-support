@@ -132,7 +132,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "('.$response.') '.$id.' ",
+                  "text": "('.$get_data.') '.$id.' ",
                   "margin": "sm",
                   "align": "start",
                   "wrap": true
@@ -206,7 +206,7 @@ include 'connectstring.php';
         }
       }
     }]';
-    
+
   $jsonFlex=json_decode($json_array, true);
   
   print_r($json_array);
