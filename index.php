@@ -39,9 +39,6 @@ include 'connectstring.php';
     // $errors = $response['response']['errors'];
     // $data = $response['response']['data'][0];
     // //
-    // Requert-id
-    if ($message=="Requert-id") {
-    }
     if ($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ") {
         $rand_id=rand(01, 04);
         $rand_sex=rand(01, 02);
@@ -73,6 +70,9 @@ include 'connectstring.php';
         $id = $arrayJson['events'][0]['source']['room'];
     }
     // flex message
+    $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id, false);
+    $response = json_decode($get_data, true);
+
     $json_array='[{
       "type": "flex",
       "altText": "Flex Message",
@@ -90,7 +90,8 @@ include 'connectstring.php';
               "align": "center",
               "gravity": "top",
               "weight": "bold",
-              "color": "#FFFFFF"
+              "color": "#FFFFFF",
+              "wrap": true
             }
           ]
         },
@@ -111,9 +112,10 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(username 1) id-line(@'.$id.')",
+                  "text": "(username 1) (id-line)",
                   "margin": "sm",
-                  "align": "start"
+                  "align": "start",
+                  "wrap": true
                 }
               ]
             },
@@ -129,9 +131,10 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(username 2) id-line(@yodsapon)",
+                  "text": "('.$get_data.') '.$id.' ",
                   "margin": "sm",
-                  "align": "start"
+                  "align": "start",
+                  "wrap": true
                 }
               ]
             }
