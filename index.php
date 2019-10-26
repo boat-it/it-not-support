@@ -109,7 +109,7 @@ include 'connectstring.php';
                 ],
                 [
                   "type" => "text",
-                  "text" => "(username 1) (id@line[$id])",
+                  "text" => "(username 1) (id@line$id)",
                   "margin" => "sm",
                   "align" => "start"
                 ]
@@ -207,7 +207,7 @@ include 'connectstring.php';
     if ($message == "Testing") {
         if (sizeof($arrayJson['events']) > 0) {
             foreach ($arrayJson['events'] as $event) {
-                error_log(json_encode($event));
+                error_log(json_encode($event,JSON_UNESCAPED_UNICODE));
                 $reply_message = '';
                 $reply_token = $event['replyToken'];
                 $data = [
@@ -215,7 +215,7 @@ include 'connectstring.php';
                 'messages' => [$jsonFlex]
             ];
                 $API_URL = 'https://api.line.me/v2/bot/message';
-                $post_body = json_encode($data);
+                $post_body = json_encode($data,JSON_UNESCAPED_UNICODE);
                 $send_result = send_reply_message($API_URL.'/reply', $arrayHeader, $post_body);
                 echo "Result: ".$send_result."\r\n";
             }
@@ -227,7 +227,7 @@ include 'connectstring.php';
       'messages' => [$jsonFlex]
   ];
 
-  print_r(json_encode($data));
+  print_r(json_encode($data,JSON_UNESCAPED_UNICODE));
     // 
     function send_reply_message($url, $post_header, $post_body)
     {
