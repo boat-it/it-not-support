@@ -203,13 +203,6 @@ include 'connectstring.php';
         }
     }
 
-    // TEST
-    $data = [
-      'replyToken' => $reply_token,
-      'messages' => $jsonFlex
-  ];
-  print_r(json_encode($data,JSON_UNESCAPED_UNICODE));
-    // 
     function send_reply_message($url, $post_header, $post_body)
     {
         $ch = curl_init($url);
