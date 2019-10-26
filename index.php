@@ -111,7 +111,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(username 1) (id-line)",
+                  "text": "(username 1) id-line(@'.$id.')",
                   "margin": "sm",
                   "align": "start"
                 }
@@ -129,7 +129,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(username 2) (id-line)",
+                  "text": "(username 2) id-line(@yodsapon)",
                   "margin": "sm",
                   "align": "start"
                 }
