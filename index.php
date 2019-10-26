@@ -203,7 +203,8 @@ include 'connectstring.php';
     $showjsonformat=$jsonFlex;
     $viewjson=json_encode($showjsonformat);
     print json_decode($viewjson, JSON_UNESCAPED_UNICODE);
-  // $jsonFlex=json_decode($json_array, true); code old conv jsonstring to php array
+
+    // $jsonFlex=json_decode($json_array, true); code old conv jsonstring to php array
   // end flex message  
     if ($message == "Testing") {
         if (sizeof($arrayJson['events']) > 0) {
