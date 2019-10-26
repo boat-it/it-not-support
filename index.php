@@ -28,6 +28,7 @@ include 'connectstring.php';
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];#ตัวอย่าง Message Type "Text"
     if ($message == "สวัสดี") {
+        
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
@@ -43,6 +44,7 @@ include 'connectstring.php';
         $rand_id=rand(01, 04);
         $rand_sex=rand(01, 02);
         $rand_department=rand(01, 04);
+        $arrayPostData['to']='Ub506b7d4a2ed187ebf8e0fbb22134d40';
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id, false);
