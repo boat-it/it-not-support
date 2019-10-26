@@ -8,13 +8,14 @@ include 'connectstring.php';
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
 
-    $arrayHeader = array();
-    $arrayHeader[] = "Content-Type: application/json";
-    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
+    $arrayHeader = ['Content-Type: application/json','Authorization: Bearer'.$accessToken];
+    // $arrayHeader = array();
+    // $arrayHeader[] = "Content-Type: application/json";
+    // $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];#ตัวอย่าง Message Type "Text"
-    
+
     if (isset($arrayJson['events'][0]['source']['userId'])) {
         $id = $arrayJson['events'][0]['source']['userId'];
     } elseif (isset($arrayJson['events'][0]['source']['groupId'])) {
