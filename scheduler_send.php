@@ -25,5 +25,6 @@ $stmt2=$dbh->prepare($querys);
 $stmt2->execute();
 while ($row=$stmt2->fetch(PDO::FETCH_ASSOC)) {
     print_r($row);
+    print "<hr>";
 }
 ?>
