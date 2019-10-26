@@ -116,7 +116,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "useridline('.($userId==null?'':$userId).') @('.$id.')",
+                  "text": "useridline(username) @(line)",
                   "margin": "sm",
                   "align": "start",
                   "wrap": true
@@ -135,7 +135,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "idformDB('.($get_data==null?'':$get_data).') @'.$id.' ",
+                  "text": "idformDB(idline) @'.$id.' ",
                   "margin": "sm",
                   "align": "start",
                   "wrap": true
