@@ -11,7 +11,7 @@ function convertdatetimezone($date ,$format = 'Y-m-d H:i:s'){
 }
 $currentgmt=convertdatetimezone($current);
 try {
-        $query="INSERT into testinsert values(:current_date)";
+        $query="INSERT into check_date_time values(:current_date)";
         $stmt=$dbh->prepare($query);
         $stmt->bindParam(':current_date', $currentgmt);
         $stmt->execute();
