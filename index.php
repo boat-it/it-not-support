@@ -200,10 +200,8 @@ include 'connectstring.php';
         ]
       ]
     ];
-    $showjsonformat=$jsonFlex;
-    print_r(json_encode($showjsonformat,JSON_UNESCAPED_UNICODE));
+    // print_r(json_encode($showjsonformat,JSON_UNESCAPED_UNICODE));
     // print_r(json_decode($viewjson, JSON_UNESCAPED_UNICODE));
-
     // $jsonFlex=json_decode($json_array, true); code old conv jsonstring to php array
   // end flex message  
     if ($message == "Testing") {
@@ -223,6 +221,13 @@ include 'connectstring.php';
             }
         }
     }
+    // View DATA
+    $data = [
+      'replyToken' => $reply_token,
+      'messages' => [$jsonFlex]
+  ];
+  print_r(json_encode($data));
+    // 
     function send_reply_message($url, $post_header, $post_body)
     {
         $ch = curl_init($url);
