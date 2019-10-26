@@ -69,6 +69,10 @@ include 'connectstring.php';
     } elseif (isset($arrayJson['events'][0]['source']['room'])) {
         $id = $arrayJson['events'][0]['source']['room'];
     }
+    //  USER ID LINE
+    $userId = $arrayJson['originalDetectIntentRequest']['payload']['data']['source']['userId'];
+    // 
+
     // flex message
     $rand_id=rand(01, 04);
     $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id, false);
@@ -113,7 +117,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(username 1) (id-line)",
+                  "text": "useridline('.$userId.') @('.$id.')",
                   "margin": "sm",
                   "align": "start",
                   "wrap": true
@@ -132,7 +136,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "('.$get_data.') @'.@$id.' ",
+                  "text": "idformDB('.$get_data.') @'.@$id.' ",
                   "margin": "sm",
                   "align": "start",
                   "wrap": true
