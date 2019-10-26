@@ -10,19 +10,6 @@ function convertdatetimezone($date ,$format = 'Y-m-d H:i:s'){
     return $d->format($format);
 }
 $currentgmt=convertdatetimezone($current);
-$querys="SELECT * from check_date_time";
-$stmt2=$dbh->prepare($querys);
-$stmt2->execute();
-while ($row=$stmt2->fetch(PDO::FETCH_ASSOC)) {
-    print_r($row);
-}
-
-$query="SELECT * from testinsert order by id_master DESC limit 1";
-$stmt=$dbh->prepare($query);
-$stmt->execute();
-$rownum=$stmt->fetch(PDO::FETCH_ASSOC);
-print"line1". $count=$rownum['id_master'];
-
 try {
         $query="INSERT into testinsert values(:current_date)";
         $stmt=$dbh->prepare($query);
@@ -30,7 +17,13 @@ try {
         $stmt->execute();
         // 
 
-    }catch(Exception $e){
-        echo $e->getmessage();
-    }
+}catch(Exception $e){
+    echo $e->getmessage();
+}
+$querys="SELECT * from check_date_time";
+$stmt2=$dbh->prepare($querys);
+$stmt2->execute();
+while ($row=$stmt2->fetch(PDO::FETCH_ASSOC)) {
+    print_r($row);
+}
 ?>
