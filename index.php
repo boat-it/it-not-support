@@ -132,7 +132,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "('.$get_data.') '.$id.' ",
+                  "text": "('.$get_data.') @'.@$id.' ",
                   "margin": "sm",
                   "align": "start",
                   "wrap": true
