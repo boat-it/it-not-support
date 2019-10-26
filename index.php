@@ -212,7 +212,7 @@ include 'connectstring.php';
                 $reply_token = $event['replyToken'];
                 $data = [
                 'replyToken' => $reply_token,
-                'messages' => [$jsonFlex]
+                'messages' => $jsonFlex
             ];
                 $API_URL = 'https://api.line.me/v2/bot/message';
                 $post_body = json_encode($data,JSON_UNESCAPED_UNICODE);
@@ -224,7 +224,7 @@ include 'connectstring.php';
     // View DATA
     $data = [
       'replyToken' => $reply_token,
-      'messages' => [$jsonFlex]
+      'messages' => [[$jsonFlex]]
   ];
 
   print_r(json_encode($data,JSON_UNESCAPED_UNICODE));
