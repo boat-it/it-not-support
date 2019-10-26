@@ -72,7 +72,7 @@ include 'connectstring.php';
         $id = $arrayJson['events'][0]['source']['room'];
     }
     //  USER ID LINE
-    $userId = $arrayJson['originalDetectIntentRequest']['payload']['data']['source']['userId'];
+    // $userId = $arrayJson['originalDetectIntentRequest']['payload']['data']['source']['userId'];
     // 
     // flex message
     $rand_id=rand(01, 04); //random user from database
@@ -137,7 +137,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "idformDB(idline) @'.print_r($userId).' ",
+                  "text": "idformDB(idline) @'.$id.' ",
                   "margin": "sm",
                   "align": "start",
                   "wrap": true
