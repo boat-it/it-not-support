@@ -226,6 +226,7 @@ include 'connectstring.php';
       'replyToken' => $reply_token,
       'messages' => [$jsonFlex]
   ];
+  
   print_r(json_encode($data));
     // 
     function send_reply_message($url, $post_header, $post_body)
