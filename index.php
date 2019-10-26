@@ -75,7 +75,7 @@ include 'connectstring.php';
     // flex message
     $json_array='[{
       "type": "flex",
-      "altText": "Random Board",
+      "altText": "Flex Message",
       "contents": {
         "type": "bubble",
         "direction": "ltr",
@@ -85,12 +85,12 @@ include 'connectstring.php';
           "contents": [
             {
               "type": "text",
-              "text": "กรรมการรับเศษกระดาษประจำวัน",
+              "text": "กรรมการรับเศษ(รอบเช้า)",
               "size": "lg",
               "align": "center",
               "gravity": "top",
               "weight": "bold",
-              "color": "#0032FF"
+              "color": "#FFFFFF"
             }
           ]
         },
@@ -111,7 +111,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(@id yodsapon) (@line)",
+                  "text": "(username 1) (id-line)",
                   "margin": "sm",
                   "align": "start"
                 }
@@ -129,7 +129,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "(@id yodsapon) @line'.$id.')",
+                  "text": "(username 2) (id-line)",
                   "margin": "sm",
                   "align": "start"
                 }
@@ -140,44 +140,65 @@ include 'connectstring.php';
         "footer": {
           "type": "box",
           "layout": "horizontal",
+          "flex": 7,
+          "spacing": "sm",
+          "margin": "xs",
           "contents": [
             {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "ok",
-                "text": "OK"
-              },
-              "color": "#02FF00",
-              "margin": "sm",
-              "height": "sm",
-              "style": "secondary"
+              "type": "box",
+              "layout": "vertical",
+              "flex": 0,
+              "contents": [
+                {
+                  "type": "spacer"
+                }
+              ]
             },
             {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "เลื่อน",
-                "text": "เลื่อน"
-              },
-              "color": "#FF0000",
-              "margin": "sm",
-              "height": "sm",
-              "style": "primary"
+              "type": "box",
+              "layout": "vertical",
+              "flex": 0,
+              "contents": [
+                {
+                  "type": "spacer",
+                  "size": "xs"
+                }
+              ]
             },
             {
-              "type": "button",
-              "action": {
-                "type": "uri",
-                "label": "ManageMent",
-                "uri": "https://it-not-support.herokuapp.com/user_table.php?id=1"
-              },
-              "color": "#005FFF",
-              "margin": "sm",
-              "height": "sm",
-              "style": "link"
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "spacer"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 0,
+              "contents": [
+                {
+                  "type": "button",
+                  "action": {
+                    "type": "uri",
+                    "label": "Manage",
+                    "uri": "https://it-not-support.herokuapp.com/user_table.php?id=1"
+                  },
+                  "color": "#E8F3FF",
+                  "margin": "sm",
+                  "height": "sm",
+                  "style": "secondary"
+                }
+              ]
             }
           ]
+        },
+        "styles": {
+          "header": {
+            "backgroundColor": "#2CA9FF"
+          }
         }
       }
     }]';
