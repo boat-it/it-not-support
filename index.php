@@ -135,7 +135,7 @@ include 'connectstring.php';
                 },
                 {
                   "type": "text",
-                  "text": "idformDB(idline) @'.$userId.' ",
+                  "text": "idformDB(idline) @'.print_r($userId).' ",
                   "margin": "sm",
                   "align": "start",
                   "wrap": true
