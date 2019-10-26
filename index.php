@@ -200,6 +200,8 @@ include 'connectstring.php';
         ]
       ]
     ];
+    $showjsonformat=$jsonFlex;
+    print "JSON".json_encode($showjsonformat);
   // $jsonFlex=json_decode($json_array, true); code old conv jsonstring to php array
   // end flex message  
     if ($message == "Testing") {
@@ -219,8 +221,6 @@ include 'connectstring.php';
             }
         }
     }
-    print_r($data);
-
     function send_reply_message($url, $post_header, $post_body)
     {
         $ch = curl_init($url);
