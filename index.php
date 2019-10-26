@@ -73,117 +73,137 @@ include 'connectstring.php';
         $id = $arrayJson['events'][0]['source']['room'];
     }
     // flex message
-    $json_array='[{
-      "type": "flex",
-      "altText": "Random Board",
-      "contents": {
-        "type": "bubble",
-        "direction": "ltr",
-        "header": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "text",
-              "text": "กรรมการรับเศษกระดาษประจำวัน",
-              "size": "lg",
-              "align": "center",
-              "gravity": "top",
-              "weight": "bold",
-              "color": "#0032FF"
-            }
+    $jsonFlex=[
+      "type" => "flex",
+      "altText" => "Flex Message",
+      "contents" => [
+        "type" => "bubble",
+        "direction" => "ltr",
+        "header" => [
+          "type" => "box",
+          "layout" => "vertical",
+          "contents" => [
+            [
+              "type" => "text",
+              "text" => "กรรมการรับเศษ(รอบเช้า)",
+              "size" => "lg",
+              "align" => "center",
+              "gravity" => "top",
+              "weight" => "bold",
+              "color" => "#FFFFFF"
+            ]
           ]
-        },
-        "body": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "box",
-              "layout": "horizontal",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "1.-",
-                  "flex": 0,
-                  "align": "center",
-                  "weight": "bold"
-                },
-                {
-                  "type": "text",
-                  "text": "(@id yodsapon) (@line)",
-                  "margin": "sm",
-                  "align": "start"
-                }
+        ],
+        "body" => [
+          "type" => "box",
+          "layout" => "vertical",
+          "contents" => [
+            [
+              "type" => "box",
+              "layout" => "horizontal",
+              "contents" => [
+                [
+                  "type" => "text",
+                  "text" => "1.-",
+                  "flex" => 0,
+                  "align" => "center",
+                  "weight" => "bold"
+                ],
+                [
+                  "type" => "text",
+                  "text" => "(username 1) (id-line)",
+                  "margin" => "sm",
+                  "align" => "start"
+                ]
               ]
-            },
-            {
-              "type": "box",
-              "layout": "horizontal",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "2.-",
-                  "flex": 0,
-                  "weight": "bold"
-                },
-                {
-                  "type": "text",
-                  "text": "(@id yodsapon) @line'.$id.')",
-                  "margin": "sm",
-                  "align": "start"
-                }
+            ],
+            [
+              "type" => "box",
+              "layout" => "horizontal",
+              "contents" => [
+                [
+                  "type" => "text",
+                  "text" => "2.-",
+                  "flex" => 0,
+                  "weight" => "bold"
+                ],
+                [
+                  "type" => "text",
+                  "text" => "(username 2) (id-line)",
+                  "margin" => "sm",
+                  "align" => "start"
+                ]
               ]
-            }
+            ]
           ]
-        },
-        "footer": {
-          "type": "box",
-          "layout": "horizontal",
-          "contents": [
-            {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "ok",
-                "text": "OK"
-              },
-              "color": "#02FF00",
-              "margin": "sm",
-              "height": "sm",
-              "style": "secondary"
-            },
-            {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "เลื่อน",
-                "text": "เลื่อน"
-              },
-              "color": "#FF0000",
-              "margin": "sm",
-              "height": "sm",
-              "style": "primary"
-            },
-            {
-              "type": "button",
-              "action": {
-                "type": "uri",
-                "label": "ManageMent",
-                "uri": "https://it-not-support.herokuapp.com/user_table.php?id=1"
-              },
-              "color": "#005FFF",
-              "margin": "sm",
-              "height": "sm",
-              "style": "link"
-            }
+        ],
+        "footer" => [
+          "type" => "box",
+          "layout" => "horizontal",
+          "flex" => 7,
+          "spacing" => "sm",
+          "margin" => "xs",
+          "contents" => [
+            [
+              "type" => "box",
+              "layout" => "vertical",
+              "flex" => 0,
+              "contents" => [
+                [
+                  "type" => "spacer"
+                ]
+              ]
+            ],
+            [
+              "type" => "box",
+              "layout" => "vertical",
+              "flex" => 0,
+              "contents" => [
+                [
+                  "type" => "spacer",
+                  "size" => "xs"
+                ]
+              ]
+            ],
+            [
+              "type" => "box",
+              "layout" => "vertical",
+              "contents" => [
+                [
+                  "type" => "spacer"
+                ]
+              ]
+            ],
+            [
+              "type" => "box",
+              "layout" => "vertical",
+              "flex" => 0,
+              "contents" => [
+                [
+                  "type" => "button",
+                  "action" => [
+                    "type" => "uri",
+                    "label" => "Manage",
+                    "uri" => "https =>//it-not-support.herokuapp.com/user_table.php?id=1"
+                  ],
+                  "color" => "#E8F3FF",
+                  "margin" => "sm",
+                  "height" => "sm",
+                  "style" => "secondary"
+                ]
+              ]
+            ]
           ]
-        }
-      }
-    }]';
-  $jsonFlex=json_decode($json_array, true);
-  
-  print_r($json_array);
+        ],
+        "styles" => [
+          "header" => [
+            "backgroundColor" => "#2CA9FF"
+          ]
+        ]
+      ]
+    ];
+  // $jsonFlex=json_decode($json_array, true); code old conv jsonstring to php array
+  // end flex message  
     if ($message == "Testing") {
         if (sizeof($arrayJson['events']) > 0) {
             foreach ($arrayJson['events'] as $event) {
@@ -192,7 +212,7 @@ include 'connectstring.php';
                 $reply_token = $event['replyToken'];
                 $data = [
                 'replyToken' => $reply_token,
-                'messages' => $jsonFlex
+                'messages' => [$jsonFlex]
             ];
                 print_r($data);
                 $API_URL = 'https://api.line.me/v2/bot/message';
@@ -201,6 +221,7 @@ include 'connectstring.php';
                 echo "Result: ".$send_result."\r\n";
             }
         }
+    print_r($data);
     }
 
     function send_reply_message($url, $post_header, $post_body)
