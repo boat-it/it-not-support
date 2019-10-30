@@ -1,4 +1,5 @@
-	function thaiDate($datetime) {
+<?php	
+function thaiDate($datetime) {
 		list($date,$time) = split(' ',$datetime); // แยกวันที่ กับ เวลาออกจากกัน
 		list($H,$i,$s) = split(':',$time); // แยกเวลา ออกเป็น ชั่วโมง นาที วินาที
 		list($Y,$m,$d) = split('-',$date); // แยกวันเป็น ปี เดือน วัน
@@ -20,3 +21,4 @@
 		}
 		return $d." ".$m." ".$Y." ".$time;
 		}
+?>
