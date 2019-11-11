@@ -8,5 +8,6 @@ $stmt1=$dbh->query("SELECT a.username from user_table a left join department on 
 $username[]=$stmt1->fetch(PDO::FETCH_ASSOC);
 // จำนวนที่ยังไม่ได้ลง จะอยุ่ใน variable countalluser 
 $countalluser=count($username);
+print $countalluser."Randomo User";
 
 ?>

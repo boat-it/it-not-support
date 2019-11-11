@@ -1,6 +1,7 @@
 
 <?php
 include('connectstring.php');
+// get[id] for query username in user_table
 if (isset($_GET['id'])){
     try {
         $stmt=$dbh->query("SELECT * from user_table a left join department b on a.username = b.username where a.id='$_GET[id]' order by a.id ASC limit 1");

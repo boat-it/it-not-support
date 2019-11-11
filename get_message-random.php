@@ -12,10 +12,10 @@ $request_array = json_decode($request, true);
 
 
 $message = $arrayJson['events'][0]['message']['text'];#ตัวอย่าง Message Type "Text"
-    if($message == "-ขอเลื่อนจ้า"){
+    if(strpos($message,'เลื่อน')!== true){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "OK";
+        $arrayPostData['messages'][0]['text'] = "จ้า";
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
