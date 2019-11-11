@@ -10,13 +10,15 @@ $POST_HEADER = ['Content-Type: application/json', 'Authorization: Bearer ' . $AC
 $request = file_get_contents('php://input');// Decode JSON to Array
 $request_array = json_decode($request, true);
 
-
 $message = $arrayJson['events'][0]['message']['text'];#ตัวอย่าง Message Type "Text"
-    if(strpos($message,'เลื่อน')!== true){
+    if(strpos($message,'เลื่อน')!= true){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "จ้า";
+        $arrayPostData['messages'][0]['text'] = "OK";
         replyMsg($arrayHeader,$arrayPostData);
+    }else{
+        die();
+        exit();
     }
     #ตัวอย่าง Message Type "Sticker"
     $reply_message = "";
