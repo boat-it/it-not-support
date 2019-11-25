@@ -1,7 +1,8 @@
 <?php
+
 $json_array=[
      "type"=> "flex",
-     "altText"=> "Flex Message",
+     "altText"=> "กรรมการรับเศษกระดาษ",
      "contents"=> [
        "type"=> "bubble",
        "direction"=> "ltr",
@@ -31,7 +32,7 @@ $json_array=[
                [
                  "type"=> "text",
                  "text"=> "1.-",
-                 "flex"=> 0,
+                 "flex"=> "0",
                  "align"=> "center",
                  "weight"=> "bold"
                ],
@@ -50,7 +51,7 @@ $json_array=[
                [
                  "type"=> "text",
                  "text"=> "2.-",
-                 "flex"=> 0,
+                 "flex"=> "0",
                  "weight"=> "bold"
                ],
                [
