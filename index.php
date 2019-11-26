@@ -80,143 +80,141 @@ include 'connectstring.php';
     $get_data = callAPI('GET', 'https://it-not-support.herokuapp.com/user_table.php?id='.$rand_id, false);
     $response = json_decode($get_data, true);
 
-    $json_array='[{
-      "type": "flex",
-      "altText": "Flex Message",
-      "contents": {
-        "type": "bubble",
-        "direction": "ltr",
-        "header": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "text",
-              "text": "กรรมการรับเศษ(รอบเช้า)",
-              "size": "lg",
-              "align": "center",
-              "gravity": "top",
-              "weight": "bold",
-              "color": "#FFFFFF",
-              "wrap": true
-            }
-          ]
-        },
-        "body": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "box",
-              "layout": "horizontal",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "1.-",
-                  "flex": 0,
-                  "align": "center",
-                  "weight": "bold"
-                },
-                {
-                  "type": "text",
-                  "text": "useridline(username) @(line)",
-                  "margin": "sm",
-                  "align": "start",
-                  "wrap": true
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "horizontal",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "2.-",
-                  "flex": 0,
-                  "weight": "bold"
-                },
-                {
-                  "type": "text",
-                  "text": "idformDB(idline) @'.$id.' ",
-                  "margin": "sm",
-                  "align": "start",
-                  "wrap": true
-                }
-              ]
-            }
-          ]
-        },
-        "footer": {
-          "type": "box",
-          "layout": "horizontal",
-          "flex": 7,
-          "spacing": "sm",
-          "margin": "xs",
-          "contents": [
-            {
-              "type": "box",
-              "layout": "vertical",
-              "flex": 0,
-              "contents": [
-                {
-                  "type": "spacer"
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "flex": 0,
-              "contents": [
-                {
-                  "type": "spacer",
-                  "size": "xs"
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "spacer"
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "flex": 0,
-              "contents": [
-                {
-                  "type": "button",
-                  "action": {
-                    "type": "uri",
-                    "label": "Manage",
-                    "uri": "https://it-not-support.herokuapp.com/user_table.php?id=1"
-                  },
-                  "color": "#E8F3FF",
-                  "margin": "sm",
-                  "height": "sm",
-                  "style": "secondary"
-                }
-              ]
-            }
-          ]
-        },
-        "styles": {
-          "header": {
-            "backgroundColor": "#2CA9FF"
-          }
-        }
-      }
-    }]';
-
-  $jsonFlex=json_decode($json_array, true);
+  //   $json_array='[{
+  //     "type": "flex",
+  //     "altText": "Flex Message",
+  //     "contents": {
+  //       "type": "bubble",
+  //       "direction": "ltr",
+  //       "header": {
+  //         "type": "box",
+  //         "layout": "vertical",
+  //         "contents": [
+  //           {
+  //             "type": "text",
+  //             "text": "กรรมการรับเศษ(รอบเช้า)",
+  //             "size": "lg",
+  //             "align": "center",
+  //             "gravity": "top",
+  //             "weight": "bold",
+  //             "color": "#FFFFFF",
+  //             "wrap": true
+  //           }
+  //         ]
+  //       },
+  //       "body": {
+  //         "type": "box",
+  //         "layout": "vertical",
+  //         "contents": [
+  //           {
+  //             "type": "box",
+  //             "layout": "horizontal",
+  //             "contents": [
+  //               {
+  //                 "type": "text",
+  //                 "text": "1.-",
+  //                 "flex": 0,
+  //                 "align": "center",
+  //                 "weight": "bold"
+  //               },
+  //               {
+  //                 "type": "text",
+  //                 "text": "useridline(username) @(line)",
+  //                 "margin": "sm",
+  //                 "align": "start",
+  //                 "wrap": true
+  //               }
+  //             ]
+  //           },
+  //           {
+  //             "type": "box",
+  //             "layout": "horizontal",
+  //             "contents": [
+  //               {
+  //                 "type": "text",
+  //                 "text": "2.-",
+  //                 "flex": 0,
+  //                 "weight": "bold"
+  //               },
+  //               {
+  //                 "type": "text",
+  //                 "text": "idformDB(idline) @'.$id.' ",
+  //                 "margin": "sm",
+  //                 "align": "start",
+  //                 "wrap": true
+  //               }
+  //             ]
+  //           }
+  //         ]
+  //       },
+  //       "footer": {
+  //         "type": "box",
+  //         "layout": "horizontal",
+  //         "flex": 7,
+  //         "spacing": "sm",
+  //         "margin": "xs",
+  //         "contents": [
+  //           {
+  //             "type": "box",
+  //             "layout": "vertical",
+  //             "flex": 0,
+  //             "contents": [
+  //               {
+  //                 "type": "spacer"
+  //               }
+  //             ]
+  //           },
+  //           {
+  //             "type": "box",
+  //             "layout": "vertical",
+  //             "flex": 0,
+  //             "contents": [
+  //               {
+  //                 "type": "spacer",
+  //                 "size": "xs"
+  //               }
+  //             ]
+  //           },
+  //           {
+  //             "type": "box",
+  //             "layout": "vertical",
+  //             "contents": [
+  //               {
+  //                 "type": "spacer"
+  //               }
+  //             ]
+  //           },
+  //           {
+  //             "type": "box",
+  //             "layout": "vertical",
+  //             "flex": 0,
+  //             "contents": [
+  //               {
+  //                 "type": "button",
+  //                 "action": {
+  //                   "type": "uri",
+  //                   "label": "Manage",
+  //                   "uri": "https://it-not-support.herokuapp.com/user_table.php?id=1"
+  //                 },
+  //                 "color": "#E8F3FF",
+  //                 "margin": "sm",
+  //                 "height": "sm",
+  //                 "style": "secondary"
+  //               }
+  //             ]
+  //           }
+  //         ]
+  //       },
+  //       "styles": {
+  //         "header": {
+  //           "backgroundColor": "#2CA9FF"
+  //         }
+  //       }
+  //     }
+  //   }]';
+  // $jsonFlex=json_decode($json_array, true);
   
-  print_r($json_array);
-    if ($message == "Testing") {
+    if ($message == "test") {
         if (sizeof($arrayJson['events']) > 0) {
             foreach ($arrayJson['events'] as $event) {
                 error_log(json_encode($event));
@@ -224,7 +222,7 @@ include 'connectstring.php';
                 $reply_token = $event['replyToken'];
                 $data = [
                 'replyToken' => $reply_token,
-                'messages' => $jsonFlex
+                'messages' =>'OK'
             ];
                 print_r($data);
                 $API_URL = 'https://api.line.me/v2/bot/message';
