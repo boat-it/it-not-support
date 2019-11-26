@@ -226,7 +226,7 @@ include 'connectstring.php';
                 $reply_token = $event['replyToken'];
                 $data = [
                 'replyToken' => $reply_token,
-                'messages' =>$json_array,
+                'messages' =>[$json_array],
             ];
                 print_r($data);
                 $API_URL = 'https://api.line.me/v2/bot/message';
