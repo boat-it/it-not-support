@@ -231,6 +231,8 @@ include 'connectstring.php';
                 echo "Result: ".$send_result."\r\n";
             }
         }
+        print_r($post_body);
+        print "file ok";
     }
 
     function send_reply_message($url, $post_header, $post_body)
