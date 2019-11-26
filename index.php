@@ -212,7 +212,11 @@ include 'connectstring.php';
   //       }
   //     }
   //   }]';
-  // $jsonFlex=json_decode($json_array, true);
+  $json_array=[
+    "type": "flex",
+    "altText": "Flex Message",
+  ];
+    $jsonFlex=json_decode($json_array, true);
   
     if ($message == "test") {
         if (sizeof($arrayJson['events']) > 0) {
@@ -222,7 +226,7 @@ include 'connectstring.php';
                 $reply_token = $event['replyToken'];
                 $data = [
                 'replyToken' => $reply_token,
-                'messages' => array('data'=>"ID LINE $id")
+                'messages' =>
             ];
                 print_r($data);
                 $API_URL = 'https://api.line.me/v2/bot/message';
