@@ -216,7 +216,7 @@ include 'connectstring.php';
     "type"=>"text",
     "text" => "text Message",
   ];
-    $jsonFlex=json_decode($json_array, true);
+    // $jsonFlex=json_decode($json_array, true);
     print_r($jsonFlex);
     if ($message == "test") {
         if (sizeof($arrayJson['events']) > 0) {
