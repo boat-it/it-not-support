@@ -213,8 +213,8 @@ include 'connectstring.php';
   //     }
   //   }]';
   $json_array=[
-    "type"=>"flex",
-    "altText" => "Flex Message",
+    "type"=>"text",
+    "text" => "text Message",
   ];
     $jsonFlex=json_decode($json_array, true);
   
