@@ -212,10 +212,42 @@ include 'connectstring.php';
   //       }
   //     }
   //   }]';
+  //TEST TEXT MESSAGE SUCCESS
+//   $json_array=[ 
+//     "type"=>"text",
+//     "text" => "text Message",
+//   ];
   $json_array=[
-    "type"=>"text",
-    "text" => "text Message",
-  ];
+        "type" => "template",
+        "altText" => "this is a buttons template",
+        "template" => [
+          "type" => "buttons",
+          "actions" => [
+            [
+              "type" => "message",
+              "label" => "PM 6:00",
+              "text" => "PM 6:00"
+            ],
+            [
+              "type" => "message",
+              "label" => "PM 7:00",
+              "text" => "PM 7:00"
+          ],
+            [
+              "type" => "message",
+              "label" => "PM 8:00",
+              "text" => "PM 8:00"
+          ],
+            [
+              "type" => "message",
+              "label" => "PM 9:00",
+              "text" => "PM 9:00"
+          ]
+          ],
+          "title" => "Select the Reservation time",
+          "text" => "Last Order  => PM 9:00"
+            ]
+        ];
     // $jsonFlex=json_decode($json_array, true);
     print_r($json_array);
     if ($message == "test") {
