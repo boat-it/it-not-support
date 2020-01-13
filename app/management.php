@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-     <table>
+     <table class='table table-sm table-striped table-bordered'>
           <thead>
                <th colspan='5'><h3>รายชื่อกรรมการรับเศษวันนี้</h3></th>
           </thead>
