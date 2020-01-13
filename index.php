@@ -362,7 +362,7 @@ $json = file_get_contents('php://input');
 $request = json_decode($json, true);
 $queryText = $request["queryResult"]["queryText"];
 $userId = $request['originalDetectIntentRequest']['payload']['data']['source']['userId'];
-$myfile = fopen("log/textfile.txt", "a") or die("Unable to open file!");
+$myfile = fopen("textfile.txt", "a") or die("Unable to open file!");
 $log = $date."-".$time."\t".$userId."\t".$queryText."\n";
 fwrite($myfile,$log);
 fclose($myfile);
