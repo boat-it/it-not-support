@@ -32,31 +32,31 @@ include 'connectstring.php';
     $response = json_decode($get_data, true);
 
     
-    $json_array=[
-      "type"=> "flex",
-      "altText"=> "Flex Message",
-      "contents"=> [
-        "type"=> "bubble",
-        "footer"=> [
-          "type"=> "box",
-          "layout"=> "horizontal",
-          "contents"=> [
-            [
-              "type"=> "button",
-              "action"=> [
-                "type"=> "uri",
-                "label"=> "More[$userId]",
-                "uri"=> "https://it-not-support.herokuapp.com/app"
-              ],
-              "color"=> "#9D8B6F",
-              "style"=> "primary"
-            ]
+    $json_array={
+      "type": "flex",
+      "altText": "Flex Message",
+      "contents": {
+        "type": "bubble",
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "More",
+                "uri": "https://it-not-support.herokuapp.com/app"
+              },
+              "color": "#9D8B6F",
+              "style": "primary"
+            }
           ]
-        ]
-      ]
-    ];
+        }
+      }
+    };
 
-  $jsonFlex=json_decode([$json_array], true);
+  $jsonFlex=json_decode($json_array, true);
   
   print_r($json_array);
     if ($message == "Testing") {
