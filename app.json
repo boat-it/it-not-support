@@ -13,5 +13,8 @@
   "name": "it-not-support",
   "scripts": {
   },
-  "stack": "heroku-18"
+  "stack": "heroku-18",
+  "require": {
+    "silex/silex": "~1.1"
+  }
 }

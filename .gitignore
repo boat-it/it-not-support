@@ -1,3 +1,5 @@
 
 *.php
 app/management.php
+vendor/
+.env
