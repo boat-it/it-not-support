@@ -34,12 +34,14 @@ $stmt->execute();
                <?php
                while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
                     ?>
-                    <td><?=$row['id']?></td>
-                    <td><?=$row['username']?></td>
-                    <td><?=$row['id_line']?></td>
-                    <td><?=$row['status1']?></td>
-                    <td><?=$row['status2']?></td>
-                    <td><?=$row['board']?></td>
+                    <tr>
+                         <td><?=$row['id']?></td>
+                         <td><?=$row['username']?></td>
+                         <td><?=$row['id_line']?></td>
+                         <td><?=$row['status1']?></td>
+                         <td><?=$row['status2']?></td>
+                         <td><?=$row['board']?></td>
+                    </tr>
                <?php } ?>
 
           </tbody>
