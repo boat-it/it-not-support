@@ -30,6 +30,8 @@ $stmt->execute();
                     <td>แผนก</td>
                     <td>เพศ</td>
                     <td>รอบ</td>
+                    <td>ลง/ไม่ลง</td>
+                    <td></td>
                </tr>
                <?php
                while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
