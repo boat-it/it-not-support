@@ -5,11 +5,17 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
+<body>
+<?php
+require 'connectstring.php';
+$sql="SELECT * from user_table";
+$stmt=$dbh->prepare($sql);
+$stmt->execute();
+
+?>
      <table class='table table-sm table-striped table-bordered'>
           <thead>
                <th colspan='5'><h3>รายชื่อกรรมการรับเศษวันนี้</h3></th>
@@ -22,6 +28,17 @@
                     <td>เพศ</td>
                     <td>รอบ</td>
                </tr>
+               <?php
+               while($row=$stmt->fetech(PDO::FETCH_ASSOC)){
+                    ?>
+                    <td><?=$row['id']?></td>
+                    <td><?=$row['username']?></td>
+                    <td><?=$row['id_line']?></td>
+                    <td><?=$row['status1']?></td>
+                    <td><?=$row['status2']?></td>
+                    <td><?=$row['board']?></td>
+               <?php } ?>
+
           </tbody>
      </table>
     <!-- Optional JavaScript -->
