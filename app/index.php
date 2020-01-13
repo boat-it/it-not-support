@@ -10,7 +10,7 @@
   </head>
 <body>
 <?php
-require 'connectstring.php';
+require '../connectstring.php';
 $sql="SELECT * from user_table";
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
