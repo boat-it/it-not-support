@@ -11,10 +11,13 @@
 <body>
 <?php
 require '../connectstring.php';
+try{
 $sql="SELECT * from user_table";
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
-
+}catch(Exception $e){
+     echo $e->getMessage(),$e->getLine();
+}
 ?>
      <table class='table table-sm table-striped table-bordered'>
           <thead>
