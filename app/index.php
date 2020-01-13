@@ -32,7 +32,7 @@ $stmt->execute();
                     <td>รอบ</td>
                </tr>
                <?php
-               while($row=$stmt->fetech(PDO::FETCH_ASSOC)){
+               while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
                     ?>
                     <td><?=$row['id']?></td>
                     <td><?=$row['username']?></td>
