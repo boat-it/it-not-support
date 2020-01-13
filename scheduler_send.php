@@ -45,7 +45,7 @@ include 'connectstring.php';
               "type"=> "button",
               "action"=> [
                 "type"=> "uri",
-                "label"=> "More",
+                "label"=> "More[$userId]",
                 "uri"=> "https://it-not-support.herokuapp.com/app"
               ],
               "color"=> "#9D8B6F",
