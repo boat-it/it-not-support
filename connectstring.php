@@ -6,12 +6,6 @@ $password='27151faae2a16ce43680f647bf4387ca2bc91c8c6159944f8b8c9bcc649ce872';
 try{
     $dbh = new PDO("pgsql:host=$hostname;dbname=d35djr9rl60o00",$username,$password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    // $sql="SELECT * from user_table";
-    // $stmt=$dbh->prepare($sql);
-    // $stmt->execute();
-    // foreach($dbh->query($sql) as $row){
-    //     print_r($row);
-    // }
 }catch(Exception $e){
     echo $e->getMessage(),$e->getLine();
 }
