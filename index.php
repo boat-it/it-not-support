@@ -26,15 +26,15 @@ include 'connectstring.php';
       $id = $arrayJson['events'][0]['source']['userId'];
    }
    else if(isset($arrayJson['events'][0]['source']['groupId'])){
-      $id = $arrayJson['events'][0]['source']['groupId'];
+      $idgroup = $arrayJson['events'][0]['source']['groupId'];
    }
    else if(isset($arrayJson['events'][0]['source']['room'])){
-      $id = $arrayJson['events'][0]['source']['room'];
+      $idroom = $arrayJson['events'][0]['source']['room'];
    }#ตัวอย่าง Message Type "Text + Sticker"
    if($message == "สวัสดี"){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา $id";
+      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา id[$id]:idgroup[$idgroup]:idroom[$idroom]";
       $arrayPostData['messages'][1]['type'] = "sticker";
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";

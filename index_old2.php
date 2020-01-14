@@ -40,7 +40,7 @@ $time = date("H:i:s");
     }
 
     
-    if ($message == "จ้า" || $message == "ครับ" || $message == "ค่ะ") {
+    if (strpos($message,"จ้า") == true || strpos($message,"Ok") == true && strpos($message,"เลื่อนค่ะ") == false && strpos($message,"เลื่อนคับ")==false) {
         $rand_id=rand(01, 04);
         $rand_sex=rand(01, 02);
         $rand_department=rand(01, 04);
