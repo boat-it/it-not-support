@@ -42,8 +42,12 @@ include 'connectstring.php';
       $arrayPostData['messages'][1]['stickerId'] = "34";
       $arrayPostData['messages'][2]['type'] = 'text';
       $arrayPostData['messages'][2]['text'] = "you Id : [$id]";
-      $sql="UPDATE user_table set id_line='$id' where username='yodsapon'";
-      $stmt=$dbh->query($sql);
+      try {
+          $sql="UPDATE user_table set id_line='$id' where username='yodsapon'";
+          $stmt=$dbh->query($sql);
+      }catch(Exception $e){
+          echo $e->getMessage(),$e->geteLine();
+      }
       pushMsg($arrayHeader,$arrayPostData);
    }function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";$ch = curl_init();
