@@ -25,6 +25,7 @@ include 'connectstring.php';
    $j=$arrayJson['events'][0]['source'];
    if(isset($arrayJson['events'][0]['source']['userId'])){
       $id = $arrayJson['events'][0]['source']['userId'];
+      $id2 = $arrayJson['events'][0]['source']['user'];
    }
    else if(isset($arrayJson['events'][0]['source']['groupId'])){
       $id = $arrayJson['events'][0]['source']['groupId'];
@@ -40,7 +41,7 @@ include 'connectstring.php';
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";
       $arrayPostData['messages'][2]['type'] = 'text';
-      $arrayPostData['messages'][2]['text'] = "you Id ".var_dump($j).": [$id]";
+      $arrayPostData['messages'][2]['text'] = "you Id ".var_dump($j).": [$id]:[$id2]";
       try {
           $sql="UPDATE user_table set id_line='$id' where username='yodsapon'";
           $stmt=$dbh->query($sql);
