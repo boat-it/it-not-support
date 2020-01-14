@@ -23,7 +23,6 @@ include 'connectstring.php';
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";//รับข้อความจากผู้ใช้
    $message = $arrayJson['events'][0]['message']['text'];//รับ id ว่ามาจากไหน
    $j=$arrayJson['events'][0];
-   print_r($j);
    if(isset($arrayJson['events'][0]['source']['userId'])){
       $id = $arrayJson['events'][0]['source']['userId'];
    }
@@ -41,7 +40,7 @@ include 'connectstring.php';
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";
       $arrayPostData['messages'][2]['type'] = 'text';
-      $arrayPostData['messages'][2]['text'] = "you Id $j: [$id]";
+      $arrayPostData['messages'][2]['text'] = "you Id ".print_r($j).": [$id]";
       try {
           $sql="UPDATE user_table set id_line='$id' where username='yodsapon'";
           $stmt=$dbh->query($sql);
@@ -49,8 +48,16 @@ include 'connectstring.php';
           echo $e->getMessage(),$e->getLine();
       }
       pushMsg($arrayHeader,$arrayPostData);
-   }function pushMsg($arrayHeader,$arrayPostData){
-      $strUrl = "https://api.line.me/v2/bot/message/push";$ch = curl_init();
+   }
+
+
+
+
+
+
+    function pushMsg($arrayHeader,$arrayPostData){
+      $strUrl = "https://api.line.me/v2/bot/message/push";
+      $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL,$strUrl);
       curl_setopt($ch, CURLOPT_HEADER, false);
       curl_setopt($ch, CURLOPT_POST, true);
