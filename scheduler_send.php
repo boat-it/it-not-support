@@ -32,7 +32,7 @@ include 'connectstring.php';
     $response = json_decode($get_data, true);
 
     
-    $json_array = [
+    $ar_to_json = [
       "type"=> "flex",
       "altText"=> "Flex Message",
       "contents"=> [
@@ -55,6 +55,7 @@ include 'connectstring.php';
         ]
       ]
     ];
+    $json_array=json_encode($ar_to_json,true);
   $jsonFlex=json_decode($json_array, true);
   
   print_r($json_array);
