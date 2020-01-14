@@ -40,7 +40,7 @@ include 'connectstring.php';
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";
       $arrayPostData['messages'][2]['type'] = 'text';
-      $arrayPostData['messages'][2]['text'] = "you Id ".print_r($j).": [$id]";
+      $arrayPostData['messages'][2]['text'] = "you Id ".var_dump($j).": [$id]";
       try {
           $sql="UPDATE user_table set id_line='$id' where username='yodsapon'";
           $stmt=$dbh->query($sql);
