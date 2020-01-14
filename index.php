@@ -24,6 +24,7 @@ include 'connectstring.php';
    $message = $arrayJson['events'][0]['message']['text'];//รับ id ว่ามาจากไหน
    if(isset($arrayJson['events'][0]['source']['userId'])){
       $id = $arrayJson['events'][0]['source']['userId'];
+      $group = $arrayJson['events'][0]['source'];
    }
    else if(isset($arrayJson['events'][0]['source']['groupId'])){
       $idgroup = $arrayJson['events'][0]['source']['groupId'];
@@ -34,7 +35,7 @@ include 'connectstring.php';
    if($message == "สวัสดี"){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา id[$id]:idgroup[$idgroup]:idroom[$idroom]";
+      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".print_r($group)." id[$id]:idgroup[$idgroup]:idroom[$idroom]";
       $arrayPostData['messages'][1]['type'] = "sticker";
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";
