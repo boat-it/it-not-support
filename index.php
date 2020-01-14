@@ -25,7 +25,7 @@ include 'connectstring.php';
    $j=$arrayJson['events'][0]['source'];
    if(isset($arrayJson['events'][0]['source']['userId'])){
       $id = $arrayJson['events'][0]['source']['userId'];
-      $id2 = $arrayJson['events'][0]['source']['user'];
+      $id2 = $arrayJson['events'][0]['source']['userId']['user'];
    }
    else if(isset($arrayJson['events'][0]['source']['groupId'])){
       $id = $arrayJson['events'][0]['source']['groupId'];
