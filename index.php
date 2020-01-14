@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,14 +10,10 @@
     <script src="library/js/jquery.3.4.1.min.js"></script>
     <title>user table committee</title>
 </head>
-<body>
+<body> -->
 <?php
 include 'callAPI.php';
 include 'connectstring.php';
-// date_default_timezone_set("Asia/Bangkok");
-// $date = date("Y-m-d");
-// $time = date("H:i:s");
-
     $accessToken = "kT9H2mrXWPMGeaTwwUpqu3RXRTTghlSAHXaPk+jZWC7kW8lI9pkbi8po6wemhLv3wzp7FUnh52sTOYbu+b1pPWMTIkGuqEuKAG2h3oqHFtkc23sSukoDHo6+o2e64a01J00m0JVo4h4wM2jDD+r2bQdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     $channelSecret = '0e14c3f144f47fbc2d247184253c0bf6';
     $content = file_get_contents('php://input');
