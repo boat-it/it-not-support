@@ -22,8 +22,8 @@ include 'connectstring.php';
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";//รับข้อความจากผู้ใช้
    $message = $arrayJson['events'][0]['message']['text'];//รับ id ว่ามาจากไหน
-   $arrayJson['events'][0];
-   print_r($arrayJson);
+   $j=$arrayJson['events'][0];
+   print_r($j);
    if(isset($arrayJson['events'][0]['source']['userId'])){
       $id = $arrayJson['events'][0]['source']['userId'];
    }
@@ -41,7 +41,7 @@ include 'connectstring.php';
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";
       $arrayPostData['messages'][2]['type'] = 'text';
-      $arrayPostData['messages'][2]['text'] = "you Id : [$id]";
+      $arrayPostData['messages'][2]['text'] = "you Id $j: [$id]";
       try {
           $sql="UPDATE user_table set id_line='$id' where username='yodsapon'";
           $stmt=$dbh->query($sql);
