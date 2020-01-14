@@ -24,8 +24,7 @@ include 'connectstring.php';
    $message = $arrayJson['events'][0]['message']['text'];//รับ id ว่ามาจากไหน
    if(isset($arrayJson['events'][0]['source']['userId'])){
       $id = $arrayJson['events'][0]['source']['userId'];
-      $group = $arrayJson['events'][0]['source'];
-      $userId = $arrayJson['originalDetectIntentRequest']['payload']['data']['source']['userId'];
+      $group = $arrayJson['events'][0]['source']['groupId']['userId'];
 
    }
    else if(isset($arrayJson['events'][0]['source']['groupId'])){
@@ -35,7 +34,6 @@ include 'connectstring.php';
       $idroom = $arrayJson['events'][0]['source']['room'];
    }
    if($message == "สวัสดี"){
-    $readgroup=print_r($group);
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
@@ -43,7 +41,7 @@ include 'connectstring.php';
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";
       $arrayPostData['messages'][2]['type'] = 'text';
-      $arrayPostData['messages'][2]['text'] = "ID{$userId}";
+      $arrayPostData['messages'][2]['text'] = "ID{$group}";
       pushMsg($arrayHeader,$arrayPostData);
    }function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";$ch = curl_init();
