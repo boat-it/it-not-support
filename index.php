@@ -28,12 +28,12 @@ include 'connectstring.php';
       $id = $arrayJson['events'][0]['source']['userId'];
    }
    else if(isset($arrayJson['events'][0]['source']['groupId'])){
-      $idgroup = $arrayJson['events'][0]['source']['groupId'];
+      $id = $arrayJson['events'][0]['source']['groupId'];
    }
    else if(isset($arrayJson['events'][0]['source']['room'])){
-      $idroom = $arrayJson['events'][0]['source']['room'];
+      $id = $arrayJson['events'][0]['source']['room'];
    }
-   if($message == "สวัสดี"){
+   if($message == "ID"){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
@@ -41,7 +41,7 @@ include 'connectstring.php';
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";
       $arrayPostData['messages'][2]['type'] = 'text';
-      $arrayPostData['messages'][2]['text'] = "ID{$group}";
+      $arrayPostData['messages'][2]['text'] = "you Id : [$id]";
       pushMsg($arrayHeader,$arrayPostData);
    }function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";$ch = curl_init();
