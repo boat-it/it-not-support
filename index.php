@@ -41,7 +41,7 @@ include 'connectstring.php';
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";
       $arrayPostData['messages'][2]['type'] = 'text';
-      $arrayPostData['messages'][2]['type'] = $readgroup;
+      $arrayPostData['messages'][2]['text'] = $readgroup;
       pushMsg($arrayHeader,$arrayPostData);
    }function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";$ch = curl_init();
