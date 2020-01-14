@@ -46,7 +46,7 @@ include 'connectstring.php';
           $sql="UPDATE user_table set id_line='$id' where username='yodsapon'";
           $stmt=$dbh->query($sql);
       }catch(Exception $e){
-          echo $e->getMessage(),$e->geteLine();
+          echo $e->getMessage(),$e->getLine();
       }
       pushMsg($arrayHeader,$arrayPostData);
    }function pushMsg($arrayHeader,$arrayPostData){
