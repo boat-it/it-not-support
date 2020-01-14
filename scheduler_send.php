@@ -55,7 +55,6 @@ include 'connectstring.php';
         ]
       ]
     ];
-
   $jsonFlex=json_decode($json_array, true);
   
   print_r($json_array);
