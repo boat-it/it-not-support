@@ -26,8 +26,6 @@ include 'connectstring.php';
    print_r($arrayJson);
    if(isset($arrayJson['events'][0]['source']['userId'])){
       $id = $arrayJson['events'][0]['source']['userId'];
-      $idgroup = $arrayJson['events'][0]['source']['groupId'];
-      $idroom = $arrayJson['events'][0]['source']['room'];
    }
    else if(isset($arrayJson['events'][0]['source']['groupId'])){
       $idgroup = $arrayJson['events'][0]['source']['groupId'];
@@ -42,8 +40,6 @@ include 'connectstring.php';
       $arrayPostData['messages'][1]['type'] = "sticker";
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";
-      $arrayPostData['messages'][2]['type'] = 'text';
-      $arrayPostData['messages'][2]['text'] = "group[$idgroup] : room[$idroom]";
       pushMsg($arrayHeader,$arrayPostData);
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";$ch = curl_init();
