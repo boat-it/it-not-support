@@ -35,7 +35,7 @@ include 'connectstring.php';
    if($message == "สวัสดี"){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".print_r($group)." id[$id]:idgroup[$idgroup]:idroom[$idroom]";
+      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา$group id[$id]:idgroup[$idgroup]:idroom[$idroom]";
       $arrayPostData['messages'][1]['type'] = "sticker";
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";
