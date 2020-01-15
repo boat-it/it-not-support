@@ -1,16 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link src='stylesheet' href='library/css/bootstrap.min.css'>
-    <link src='stylesheet' href='library/css/jquery.3.4.1.min.css'>
-    <script src="library/js/bootstrap.min.js"></script>
-    <script src="library/js/jquery.3.4.1.min.js"></script>
-    <title>user table committee</title>
-</head>
-<body> -->
 <?php
 include 'callAPI.php';
 include 'connectstring.php';
