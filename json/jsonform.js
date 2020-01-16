@@ -1,5 +1,4 @@
 let post_from_php = $.post(json_array);
-alert(post_from_php)
 let  username1 = JSON.parse(this.username1)
 let  username2 = JSON.parse(this.username2)
 let  idlineuser1 = JSON.parse(this.idlineuser1)
@@ -169,3 +168,6 @@ let json_array={
       }
     }
   }
+
+  console.log(json_array);
+  alert(json_array);
