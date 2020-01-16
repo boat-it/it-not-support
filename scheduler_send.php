@@ -11,6 +11,7 @@
     <title>user table committee</title>
 </head>  
 <body>
+<div id='data_json'></div>
 <?php
 include 'callAPI.php';
 include 'connectstring.php';
@@ -64,7 +65,9 @@ $(document).ready(function(){
       data:{json_array:"OK"},
       dataType: "script",
       success: function (response) {
-         
+         alert(response);
+         console.log(response);
+         $("#data_json").html(response);
       }
    });
 
