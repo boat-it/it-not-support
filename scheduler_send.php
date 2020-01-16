@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,8 +9,8 @@
     <script src="library/js/bootstrap.min.js"></script>
     <script src="library/js/jquery.3.4.1.min.js"></script>
     <title>user table committee</title>
-</head>
-<body> -->
+</head>  
+<body>
 <?php
 include 'callAPI.php';
 include 'connectstring.php';
@@ -23,7 +23,7 @@ include 'connectstring.php';
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";//รับข้อความจากผู้ใช้
    $message = $arrayJson['events'][0]['message']['text'];//รับ id ว่ามาจากไหน
    $arrayJson['events'][0];
-   print_r($arrayJson);
+   print_r($arrayJson); 
    if(isset($arrayJson['events'][0]['source']['userId'])){
       $id = $arrayJson['events'][0]['source']['userId'];
    }
@@ -42,7 +42,8 @@ include 'connectstring.php';
       $arrayPostData['messages'][1]['stickerId'] = "34";
       pushMsg($arrayHeader,$arrayPostData);
    function pushMsg($arrayHeader,$arrayPostData){
-      $strUrl = "https://api.line.me/v2/bot/message/push";$ch = curl_init();
+      $strUrl = "https://api.line.me/v2/bot/message/push"
+      ;$ch = curl_init();
       curl_setopt($ch, CURLOPT_URL,$strUrl);
       curl_setopt($ch, CURLOPT_HEADER, false);
       curl_setopt($ch, CURLOPT_POST, true);
@@ -54,3 +55,20 @@ include 'connectstring.php';
       curl_close ($ch);
    }exit;
 ?>
+
+<script>
+$(document).ready(function(){
+   $.ajax({
+      type: "post",
+      url:"json/jsonform.js",
+      data:{json_array:"OK"},
+      dataType: "script",
+      success: function (response) {
+         
+      }
+   });
+
+})
+</script>
+</body>
+</html>
