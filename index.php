@@ -331,7 +331,7 @@ $time = date("H:i:s");
         $result = curl_exec($ch);
         curl_close($ch);
     }   exit;
-// push message
+// push message ฟังชั่น ส่งข้อความ
 function pushMsg($arrayHeader, $arrayPostData)
 {
     $strUrl = "https://api.line.me/v2/bot/message/push";
@@ -348,7 +348,6 @@ function pushMsg($arrayHeader, $arrayPostData)
 }exit;
 
 // log read id_usert
-
 $json = file_get_contents('php://input');
 $request = json_decode($json, true);
 $queryText = $request["queryResult"]["queryText"];
@@ -357,7 +356,7 @@ $myfile = fopen("textfile.txt", "a") or die("Unable to open file!");
 $log = $date."-".$time."\t".$userId."\t".$queryText."\n";
 fwrite($myfile,$log);
 fclose($myfile);
-// end log read id_user
+//end log read id_user
 
 ?>
 </body>
